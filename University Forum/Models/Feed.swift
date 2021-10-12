@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Feed {
+class Feed: Encodable {
     var id: String?
     var postedBy: String?
     var post: String?

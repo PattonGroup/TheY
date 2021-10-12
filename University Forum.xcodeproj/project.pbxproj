@@ -40,6 +40,7 @@
 		3CB4734626E9D545003F44D0 /* ASVideoLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734326E9D545003F44D0 /* ASVideoLayerObject.swift */; };
 		3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */; };
 		3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */; };
+		3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD7165270DD28800D978A9 /* APIHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		3CB4734326E9D545003F44D0 /* ASVideoLayerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoLayerObject.swift; sourceTree = "<group>"; };
 		3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
 		3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
+		3CBD7165270DD28800D978A9 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
 		B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				3C3B0ABA26E8ABF800CD017E /* PlayerView.swift */,
 				3C797A1826E715BF0046E663 /* CustomView.swift */,
 				3C85185126EC2F6400BDA3D9 /* SharedFunc.swift */,
+				3CBD7165270DD28800D978A9 /* APIHelper.swift */,
 				3C85185526EC384600BDA3D9 /* GlobalCache.swift */,
 				3C85184B26EC23A900BDA3D9 /* Controllers */,
 				3C85184C26EC23BE00BDA3D9 /* Third Party */,
@@ -341,6 +344,7 @@
 				3C797A1926E715BF0046E663 /* CustomView.swift in Sources */,
 				3C85185926EF167B00BDA3D9 /* UnivesityBannerCell.swift in Sources */,
 				3C85186126F0A36400BDA3D9 /* PostTableViewCell.swift in Sources */,
+				3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */,
 				3C2CB5A226E5225A0078F95A /* LoginViewController.swift in Sources */,
 				3C797A2326E71FEA0046E663 /* FeedsCell.swift in Sources */,
 				3CB4734626E9D545003F44D0 /* ASVideoLayerObject.swift in Sources */,
