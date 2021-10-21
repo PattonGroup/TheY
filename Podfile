@@ -9,5 +9,7 @@ target 'University Forum' do
   # pod 'VideoPlaybackKit'
   pod 'RxSwift'
   pod 'TagListView', '~> 1.0'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
 end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C688032721242900BD9735 /* GoogleService-Info.plist */; };
 		3929C5DAFF20C1A7DFB7D0F2 /* Pods_University_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */; };
 		3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB58A26E51B8D0078F95A /* AppDelegate.swift */; };
 		3C2CB58D26E51B8D0078F95A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB58C26E51B8D0078F95A /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07C688032721242900BD9735 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3C2CB58726E51B8D0078F95A /* University Forum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "University Forum.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2CB58A26E51B8D0078F95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2CB58C26E51B8D0078F95A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				3C2CB59826E51B8F0078F95A /* LaunchScreen.storyboard */,
 				3C2CB59626E51B8F0078F95A /* Assets.xcassets */,
 				3C2CB59B26E51B8F0078F95A /* Info.plist */,
+				07C688032721242900BD9735 /* GoogleService-Info.plist */,
 				3C2CB59326E51B8D0078F95A /* University_Forum.xcdatamodeld */,
 			);
 			path = "University Forum";
@@ -278,6 +281,7 @@
 				3C797A2B26E721790046E663 /* UniversityCollectionViewCell.xib in Resources */,
 				3C797A2426E71FEA0046E663 /* FeedsCell.xib in Resources */,
 				3C2CB59726E51B8F0078F95A /* Assets.xcassets in Resources */,
+				07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */,
 				3C85185A26EF167B00BDA3D9 /* UnivesityBannerCell.xib in Resources */,
 				3C2CB59226E51B8D0078F95A /* Main.storyboard in Resources */,
 			);
@@ -510,7 +514,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialring;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pattonthey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,7 +534,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.socialring;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pattonthey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
