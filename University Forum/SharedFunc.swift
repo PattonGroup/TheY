@@ -54,4 +54,39 @@ class SharedFunc {
             }
         }
     }
+    
+    //MARK: Validation Functions
+    static func isValidPhone(phone: String) -> Bool {
+        
+        let phoneRegex = "^[0-9]{6,14}$";
+        let valid = NSPredicate(format: "SELF MATCHES %@", phoneRegex).evaluate(with: phone)
+        return valid
+    }
+    
+    static func isValidEmail(candidate: String) -> Bool {
+        
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        var valid = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: candidate)
+        if valid {
+            valid = !candidate.contains("..")
+        }
+        return valid
+    }
+    
+    static func applyTextfieldFormatting(_ textfield: UITextField){
+        textfield.borderStyle = .none
+        textfield.layer.borderWidth = 1
+        textfield.layer.borderColor = UIColor.lightGray.cgColor
+        textfield.layer.cornerRadius = 8
+        textfield.layer.masksToBounds = true
+        
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
+        textfield.leftViewMode = .always
+        textfield.leftView = leftPadding
+        
+        let rightPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
+        textfield.rightViewMode = .always
+        textfield.rightView = rightPadding
+    }
+    
 }

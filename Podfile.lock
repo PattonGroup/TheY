@@ -424,18 +424,26 @@ PODS:
   - gRPC-Core/Interface (1.28.2)
   - GTMSessionFetcher/Core (1.7.0)
   - leveldb-library (1.22.1)
+  - MarqueeLabel (4.0.5)
+  - MBProgressHUD (1.2.0)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
   - PromisesObjC (2.0.0)
   - RxSwift (6.2.0)
+  - SnapKit (5.0.1)
   - TagListView (1.4.1)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
+  - MBProgressHUD (~> 1.2.0)
+  - NotificationBannerSwift (~> 3.0.0)
   - RxSwift
   - TagListView (~> 1.0)
 
@@ -454,9 +462,13 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - MarqueeLabel
+    - MBProgressHUD
     - nanopb
+    - NotificationBannerSwift
     - PromisesObjC
     - RxSwift
+    - SnapKit
     - TagListView
 
 SPEC CHECKSUMS:
@@ -473,11 +485,15 @@ SPEC CHECKSUMS:
   gRPC-Core: 4afa11bfbedf7cdecd04de535a9e046893404ed5
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
 
-PODFILE CHECKSUM: 5d14087218b8b75d47d6b021fc559af23570fd1e
+PODFILE CHECKSUM: 1c0cba636b919d3868f3ca59427f30428a1f93cd
 
 COCOAPODS: 1.10.1

@@ -42,6 +42,7 @@
 		3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */; };
 		3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */; };
 		3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FA2723180600F5178C /* SignupViewController.swift */; };
+		3CBBE0FD272322A200F5178C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FC272322A200F5178C /* Extension.swift */; };
 		3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD7165270DD28800D978A9 /* APIHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
 		3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
 		3CBBE0FA2723180600F5178C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		3CBBE0FC272322A200F5178C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3CBD7165270DD28800D978A9 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				3C85185126EC2F6400BDA3D9 /* SharedFunc.swift */,
 				3CBD7165270DD28800D978A9 /* APIHelper.swift */,
 				3C85185526EC384600BDA3D9 /* GlobalCache.swift */,
+				3CBBE0FC272322A200F5178C /* Extension.swift */,
 				3C85184B26EC23A900BDA3D9 /* Controllers */,
 				3C85184C26EC23BE00BDA3D9 /* Third Party */,
 				3C797A2526E7205A0046E663 /* Models */,
@@ -348,6 +351,7 @@
 				3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */,
 				3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */,
 				3C2CB58D26E51B8D0078F95A /* SceneDelegate.swift in Sources */,
+				3CBBE0FD272322A200F5178C /* Extension.swift in Sources */,
 				3C797A1926E715BF0046E663 /* CustomView.swift in Sources */,
 				3C85185926EF167B00BDA3D9 /* UnivesityBannerCell.swift in Sources */,
 				3C85186126F0A36400BDA3D9 /* PostTableViewCell.swift in Sources */,

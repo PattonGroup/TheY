@@ -45,6 +45,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="LhV-IF-Oha"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Email address  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFU-HA-h2h">
                                                         <rect key="frame" x="15" y="11" width="111.5" height="18"/>
@@ -74,6 +77,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="Pmr-Bf-hVH"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Password  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4L-fl-yeZ">
                                                         <rect key="frame" x="15" y="11" width="82" height="18"/>
@@ -394,9 +400,12 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="9kI-ax-8GL" id="Laf-Ng-KBc"/>
+                                                        </connections>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-xN-zKD">
-                                                        <rect key="frame" x="15" y="11" width="68.5" height="18"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Full Name  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKi-xN-zKD">
+                                                        <rect key="frame" x="15" y="11" width="84.5" height="18"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
@@ -423,6 +432,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="9kI-ax-8GL" id="Mig-Cc-bWc"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Email address  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BI6-uS-JUm">
                                                         <rect key="frame" x="15" y="11" width="111.5" height="18"/>
@@ -452,6 +464,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="9kI-ax-8GL" id="w3z-HV-xt0"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  Password  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKz-vv-z4f">
                                                         <rect key="frame" x="15" y="11" width="82" height="18"/>
@@ -488,7 +503,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="GqB-1M-jNi" kind="show" id="Bcr-VH-9AA"/>
+                                            <action selector="didTapSignup:" destination="9kI-ax-8GL" eventType="touchUpInside" id="0GW-Gn-VRm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -543,10 +558,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zBO-dc-k3j"/>
+                    <connections>
+                        <outlet property="emailTextfield" destination="DjT-3F-sim" id="9VH-2z-3sK"/>
+                        <outlet property="fullNameTextfield" destination="sHl-RZ-xcR" id="sYl-cs-9YH"/>
+                        <outlet property="passwordTextfield" destination="sTe-vL-2ox" id="Hac-Vz-J4d"/>
+                        <segue destination="GqB-1M-jNi" kind="show" identifier="SignupToShowMain" id="j2g-wL-4Xu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQz-BI-Ccy" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="804"/>
+            <point key="canvasLocation" x="1024.6376811594205" y="803.57142857142856"/>
         </scene>
     </scenes>
     <designables>
