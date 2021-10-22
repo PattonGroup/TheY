@@ -40,6 +40,7 @@
 		3CB4734626E9D545003F44D0 /* ASVideoLayerObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734326E9D545003F44D0 /* ASVideoLayerObject.swift */; };
 		3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */; };
 		3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */; };
+		3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FA2723180600F5178C /* SignupViewController.swift */; };
 		3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD7165270DD28800D978A9 /* APIHelper.swift */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		3CB4734326E9D545003F44D0 /* ASVideoLayerObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoLayerObject.swift; sourceTree = "<group>"; };
 		3CB4734426E9D545003F44D0 /* ASVideoPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoPlayerController.swift; sourceTree = "<group>"; };
 		3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoContainer.swift; sourceTree = "<group>"; };
+		3CBBE0FA2723180600F5178C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3CBD7165270DD28800D978A9 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
+				3CBBE0FA2723180600F5178C /* SignupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				3C85185226EC2F6400BDA3D9 /* SharedFunc.swift in Sources */,
 				3C797A2A26E721790046E663 /* UniversityCollectionViewCell.swift in Sources */,
 				3C85186426F0A7AD00BDA3D9 /* Feed.swift in Sources */,
+				3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */,
 				3C2CB59526E51B8D0078F95A /* University_Forum.xcdatamodeld in Sources */,
 				3C797A2726E7206D0046E663 /* University.swift in Sources */,
 			);

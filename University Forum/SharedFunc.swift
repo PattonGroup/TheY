@@ -19,7 +19,7 @@ class SharedFunc {
         assetImgGenerate.appliesPreferredTrackTransform = true
         assetImgGenerate.maximumSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width * 0.7)
 
-        let time = CMTimeMakeWithSeconds(0.0, preferredTimescale: 600)
+        let time = CMTimeMakeWithSeconds(0.0, preferredTimescale: 2)
         do {
             let img = try assetImgGenerate.copyCGImage(at: time, actualTime: nil)
             let thumbnail = UIImage(cgImage: img)
