@@ -116,7 +116,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="GqB-1M-jNi" kind="show" id="p5G-1M-WEX"/>
+                                            <action selector="loginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K6U-d8-FtX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -173,6 +173,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2yH-uz-Ijv"/>
+                    <connections>
+                        <outlet property="emailTextfield" destination="vkg-Li-zEv" id="Jif-yT-Lah"/>
+                        <outlet property="passwordTextfield" destination="Pcp-Ey-Y4l" id="5XC-SS-s7D"/>
+                        <segue destination="GqB-1M-jNi" kind="show" identifier="LoginToView" id="ruR-KF-WBQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -548,12 +553,15 @@
         <designable name="JZ7-IP-3kp">
             <size key="intrinsicContentSize" width="31" height="30"/>
         </designable>
+        <designable name="ScM-Fj-Hc6">
+            <size key="intrinsicContentSize" width="38" height="30"/>
+        </designable>
         <designable name="Zns-do-KoE">
             <size key="intrinsicContentSize" width="52" height="30"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="Bcr-VH-9AA"/>
+        <segue reference="ruR-KF-WBQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
