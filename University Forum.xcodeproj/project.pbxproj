@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07C688032721242900BD9735 /* GoogleService-Info.plist */; };
 		3929C5DAFF20C1A7DFB7D0F2 /* Pods_University_Forum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */; };
+		3C0194F3272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0194F1272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift */; };
+		3C0194F4272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C0194F2272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib */; };
+		3C0194F6272AFAED00E5F2E6 /* TopMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0194F5272AFAED00E5F2E6 /* TopMenuItem.swift */; };
+		3C0194F8272AFDAB00E5F2E6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C0194F7272AFDAB00E5F2E6 /* Constants.swift */; };
 		3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB58A26E51B8D0078F95A /* AppDelegate.swift */; };
 		3C2CB58D26E51B8D0078F95A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB58C26E51B8D0078F95A /* SceneDelegate.swift */; };
 		3C2CB59226E51B8D0078F95A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2CB59026E51B8D0078F95A /* Main.storyboard */; };
@@ -19,6 +23,8 @@
 		3C2CB5A426E522650078F95A /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB5A326E522650078F95A /* DashboardViewController.swift */; };
 		3C2CB5A626E522780078F95A /* UniversityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2CB5A526E522780078F95A /* UniversityViewController.swift */; };
 		3C3B0ABB26E8ABF800CD017E /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3B0ABA26E8ABF800CD017E /* PlayerView.swift */; };
+		3C77AA43272AF73500761EC3 /* TopMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C77AA41272AF73500761EC3 /* TopMenuCell.swift */; };
+		3C77AA44272AF73500761EC3 /* TopMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C77AA42272AF73500761EC3 /* TopMenuCell.xib */; };
 		3C797A1926E715BF0046E663 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C797A1826E715BF0046E663 /* CustomView.swift */; };
 		3C797A1D26E71ED20046E663 /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C797A1B26E71ED20046E663 /* UniversityCell.swift */; };
 		3C797A1E26E71ED20046E663 /* UniversityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C797A1C26E71ED20046E663 /* UniversityCell.xib */; };
@@ -48,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		07C688032721242900BD9735 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3C0194F1272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		3C0194F2272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		3C0194F5272AFAED00E5F2E6 /* TopMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuItem.swift; sourceTree = "<group>"; };
+		3C0194F7272AFDAB00E5F2E6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3C2CB58726E51B8D0078F95A /* HTXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HTXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2CB58A26E51B8D0078F95A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C2CB58C26E51B8D0078F95A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +70,8 @@
 		3C2CB5A326E522650078F95A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		3C2CB5A526E522780078F95A /* UniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewController.swift; sourceTree = "<group>"; };
 		3C3B0ABA26E8ABF800CD017E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		3C77AA41272AF73500761EC3 /* TopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuCell.swift; sourceTree = "<group>"; };
+		3C77AA42272AF73500761EC3 /* TopMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopMenuCell.xib; sourceTree = "<group>"; };
 		3C797A1826E715BF0046E663 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		3C797A1B26E71ED20046E663 /* UniversityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCell.swift; sourceTree = "<group>"; };
 		3C797A1C26E71ED20046E663 /* UniversityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UniversityCell.xib; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 				3CBD7165270DD28800D978A9 /* APIHelper.swift */,
 				3C85185526EC384600BDA3D9 /* GlobalCache.swift */,
 				3CBBE0FC272322A200F5178C /* Extension.swift */,
+				3C0194F7272AFDAB00E5F2E6 /* Constants.swift */,
 				3C85184B26EC23A900BDA3D9 /* Controllers */,
 				3C85184C26EC23BE00BDA3D9 /* Third Party */,
 				3C797A2526E7205A0046E663 /* Models */,
@@ -169,6 +182,10 @@
 				3C85185826EF167B00BDA3D9 /* UnivesityBannerCell.xib */,
 				3C85185F26F0A36400BDA3D9 /* PostTableViewCell.swift */,
 				3C85186026F0A36400BDA3D9 /* PostTableViewCell.xib */,
+				3C77AA41272AF73500761EC3 /* TopMenuCell.swift */,
+				3C77AA42272AF73500761EC3 /* TopMenuCell.xib */,
+				3C0194F1272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift */,
+				3C0194F2272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -178,6 +195,7 @@
 			children = (
 				3C797A2626E7206D0046E663 /* University.swift */,
 				3C85186326F0A7AD00BDA3D9 /* Feed.swift */,
+				3C0194F5272AFAED00E5F2E6 /* TopMenuItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -285,10 +303,12 @@
 				3C797A1E26E71ED20046E663 /* UniversityCell.xib in Resources */,
 				3C85186226F0A36400BDA3D9 /* PostTableViewCell.xib in Resources */,
 				3C797A2B26E721790046E663 /* UniversityCollectionViewCell.xib in Resources */,
+				3C0194F4272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib in Resources */,
 				3C797A2426E71FEA0046E663 /* FeedsCell.xib in Resources */,
 				3C2CB59726E51B8F0078F95A /* Assets.xcassets in Resources */,
 				07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */,
 				3C85185A26EF167B00BDA3D9 /* UnivesityBannerCell.xib in Resources */,
+				3C77AA44272AF73500761EC3 /* TopMenuCell.xib in Resources */,
 				3C2CB59226E51B8D0078F95A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +367,8 @@
 				3C2CB5A426E522650078F95A /* DashboardViewController.swift in Sources */,
 				3C797A1D26E71ED20046E663 /* UniversityCell.swift in Sources */,
 				3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */,
+				3C0194F8272AFDAB00E5F2E6 /* Constants.swift in Sources */,
+				3C0194F3272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift in Sources */,
 				3C3B0ABB26E8ABF800CD017E /* PlayerView.swift in Sources */,
 				3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */,
 				3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */,
@@ -365,8 +387,10 @@
 				3C85185226EC2F6400BDA3D9 /* SharedFunc.swift in Sources */,
 				3C797A2A26E721790046E663 /* UniversityCollectionViewCell.swift in Sources */,
 				3C85186426F0A7AD00BDA3D9 /* Feed.swift in Sources */,
+				3C0194F6272AFAED00E5F2E6 /* TopMenuItem.swift in Sources */,
 				3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */,
 				3C2CB59526E51B8D0078F95A /* University_Forum.xcdatamodeld in Sources */,
+				3C77AA43272AF73500761EC3 /* TopMenuCell.swift in Sources */,
 				3C797A2726E7206D0046E663 /* University.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,6 +540,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -536,6 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

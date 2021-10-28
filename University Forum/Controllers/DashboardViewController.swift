@@ -11,6 +11,7 @@ import UIKit
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
+            tableView.register(TopMenuCell.nib, forCellReuseIdentifier: TopMenuCell.identifier)
             tableView.register(UniversityCell.nib, forCellReuseIdentifier: UniversityCell.identifier)
             tableView.register(FeedsCell.nib, forCellReuseIdentifier: FeedsCell.identifier)
             tableView.tableHeaderView = UIView()
@@ -100,16 +101,23 @@ class DashboardViewController: UIViewController {
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ?  1 : 10
+        return section == 2 ?  10 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: TopMenuCell.identifier, for: indexPath) as! TopMenuCell
+            cell.collectionView.reloadData()
+            cell.separatorInset.left = 0
+            cell.selectionStyle = .none
+            return cell
+            
+        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: UniversityCell.identifier, for: indexPath) as! UniversityCell
             cell.collectionView.reloadData()
             cell.separatorInset.left = 0
@@ -180,7 +188,11 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 0 ? 100 : UITableView.automaticDimension
+        switch indexPath.section {
+            case 0:  return 80
+            case 1: return 100
+            default: return UITableView.automaticDimension
+        }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
