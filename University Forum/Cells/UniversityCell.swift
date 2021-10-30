@@ -49,7 +49,6 @@ extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.imgView.image = UIImage(named: Constants.shared.universityBannersImageNames[indexPath.row])
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-        cell.backgroundColor = UIColor.lightGray
         return cell
     }
 

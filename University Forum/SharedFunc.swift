@@ -8,6 +8,7 @@
 import Foundation
 import AVKit
 import UIKit
+import NotificationBannerSwift
 
 class SharedFunc {
     static let shared = SharedFunc()
@@ -87,6 +88,11 @@ class SharedFunc {
         let rightPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: textfield.frame.height))
         textfield.rightViewMode = .always
         textfield.rightView = rightPadding
+    }
+    
+    static func showError(errMsg: String){
+        let banner = GrowingNotificationBanner(title: "Authentication Error", subtitle: errMsg, style: .danger)
+        banner.show()
     }
     
 }

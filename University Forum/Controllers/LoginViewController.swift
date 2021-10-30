@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
                     MBProgressHUD.hide(for: self.view, animated: true)
                     if let e = error {
                         print(e)
-                        self.showError(errMsg: e.localizedDescription)
+                        SharedFunc.showError(errMsg: e.localizedDescription)
 //                        self.errorLoginTextfield?.text = e.localizedDescription
                     } else {
                         self.performSegue(withIdentifier: "LoginToView", sender: self)
@@ -45,12 +45,6 @@ class LoginViewController: UIViewController {
             }
         }
   
-    }
-    
-    
-    private func showError(errMsg: String){
-        let banner = GrowingNotificationBanner(title: "Authentication Error", subtitle: errMsg, style: .danger)
-        banner.show()
     }
     
     
