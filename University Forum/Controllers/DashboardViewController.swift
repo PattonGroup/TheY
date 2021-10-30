@@ -207,12 +207,12 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section > 0 ? 5 : 0
+        return section > 0 ? 3 : 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section > 0 {
-            let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 5))
+            let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 3))
             header.backgroundColor = UIColor(named: "gray-separator")
             return header
         }
