@@ -41,12 +41,12 @@ class UniversityCell: UITableViewCell {
 
 extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5//universityArray.count
+        return Constants.shared.universityBannersImageNames.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UniversityCollectionViewCell.identifier, for: indexPath) as! UniversityCollectionViewCell
-        cell.imgView.image = UIImage(named: "forum")
+        cell.imgView.image = UIImage(named: Constants.shared.universityBannersImageNames[indexPath.row])
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.backgroundColor = UIColor.lightGray

@@ -35,6 +35,10 @@ class DashboardViewController: UIViewController {
         
         SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
         GlobalCache.shared.delegate = self
+        
+        var frame = CGRect.zero
+        frame.size.height = .leastNormalMagnitude
+        tableView.tableHeaderView = UIView(frame: frame)
         // Do any additional setup after loading the view
     }
     
@@ -113,8 +117,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: TopMenuCell.identifier, for: indexPath) as! TopMenuCell
             cell.collectionView.reloadData()
-            cell.separatorInset.left = 0
+            cell.separatorInset.left = self.view.frame.width
             cell.selectionStyle = .none
+            
             return cell
             
         case 1:
@@ -199,6 +204,19 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         if let videoCell = cell as? ASAutoPlayVideoLayerContainer, let _ = videoCell.videoURL {
             ASVideoPlayerController.sharedVideoPlayer.removeLayerFor(cell: videoCell)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return section > 0 ? 5 : 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section > 0 {
+            let header = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 5))
+            header.backgroundColor = UIColor(named: "gray-separator")
+            return header
+        }
+        return nil
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -20,4 +20,13 @@ class Constants {
         TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 6")
     ]
     
+    
+    let universityBannersImageNames: [String] = [
+        "alabama_crimson_tide",
+        "beasley_bobcats",
+        "home_of_the_culver",
+        "jane_long_elementary",
+        "taylor_ray_elementary"
+    ]
+    
 }
