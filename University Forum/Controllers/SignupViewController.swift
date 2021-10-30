@@ -24,9 +24,17 @@ class SignupViewController: UIViewController {
         self.view.endEditing(true)
         
         if validated() {
-            
-            //Should perform the api for sign up first.
-            self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
+            if let email = emailTextfield.text, let password = passwordTextfield.text {
+                
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    print(e)
+                    self.errorTextfield.text = e.localizedDescription
+                } else {
+                    self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
+                    }
+                }
+            }            //Should perform the api for sign up first.
         }
         
     }
