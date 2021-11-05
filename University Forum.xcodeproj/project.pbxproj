@@ -71,6 +71,7 @@
 		3C2CB5A326E522650078F95A /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		3C2CB5A526E522780078F95A /* UniversityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewController.swift; sourceTree = "<group>"; };
 		3C3B0ABA26E8ABF800CD017E /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		3C5DE07227359E2F001FB3D7 /* University Forum.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "University Forum.entitlements"; sourceTree = "<group>"; };
 		3C77AA41272AF73500761EC3 /* TopMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuCell.swift; sourceTree = "<group>"; };
 		3C77AA42272AF73500761EC3 /* TopMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopMenuCell.xib; sourceTree = "<group>"; };
 		3C797A1826E715BF0046E663 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		3C2CB58926E51B8D0078F95A /* University Forum */ = {
 			isa = PBXGroup;
 			children = (
+				3C5DE07227359E2F001FB3D7 /* University Forum.entitlements */,
 				3C2CB58A26E51B8D0078F95A /* AppDelegate.swift */,
 				3C2CB58C26E51B8D0078F95A /* SceneDelegate.swift */,
 				3C3B0ABA26E8ABF800CD017E /* PlayerView.swift */,
@@ -551,6 +553,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
@@ -572,6 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
