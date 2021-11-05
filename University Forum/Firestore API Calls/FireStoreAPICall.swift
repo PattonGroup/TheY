@@ -26,6 +26,7 @@ class FireStoreAPICall {
     func getAllFeeds() {
         let db = Firestore.firestore()
         
+        
 //        let docRef = db.collection(Collection.FEED).document("SF")
 //        docRef.getDocument { (document, error) in
 //            if let document = document, document.exists {

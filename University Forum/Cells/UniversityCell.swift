@@ -41,12 +41,12 @@ class UniversityCell: UITableViewCell {
 
 extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.shared.universityBannersImageNames.count
+        return Constants.shared.universityArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UniversityCollectionViewCell.identifier, for: indexPath) as! UniversityCollectionViewCell
-        cell.imgView.image = UIImage(named: Constants.shared.universityBannersImageNames[indexPath.row])
+        cell.imgView.image = UIImage(named: Constants.shared.universityArray[indexPath.row].imageName)
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         return cell
@@ -66,7 +66,7 @@ extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("SELECTED UNIVERSITY AT INDEX: \(indexPath.row)")
-        GlobalCache.shared.delegate?.didSelectUniversity(university: University(id: "1", name: "", imageURL: ""))
+        GlobalCache.shared.delegate?.didSelectUniversity(university: Constants.shared.universityArray[indexPath.row])
     }
     
 }

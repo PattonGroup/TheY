@@ -8,6 +8,7 @@ import TagListView
 import UIKit
 
 class UnivesityBannerCell: UITableViewCell {
+  
     @IBOutlet weak var imgBanner: UIImageView!
     @IBOutlet weak var lblUniversityName: UILabel!
     @IBOutlet weak var lblOfficialGroup: UILabel!
