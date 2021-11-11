@@ -21,6 +21,10 @@ class LoginViewController: UIViewController {
         SharedFunc.applyTextfieldFormatting(emailTextfield)
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
 //        errorLoginTextfield?.text = " "
+        
+//        FireStoreAPICall.shared.getAllPosts()
+        let fe
+        PostsAPI.shared.createPost(feed: )
     }
         
     @IBAction func loginPressed(_ sender: UIButton) {
