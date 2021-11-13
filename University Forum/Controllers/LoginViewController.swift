@@ -20,9 +20,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         SharedFunc.applyTextfieldFormatting(emailTextfield)
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
-//        errorLoginTextfield?.text = " "
         
-        PostsAPI.shared.getAllPosts()
+        PostsAPI.shared.getAllPosts { data in }
         
         let user: [String: Any] = [
             "email": "ian@gmail.com",
@@ -34,7 +33,7 @@ class LoginViewController: UIViewController {
             "updatedAt": Date()
         ]
         UsersAPI.shared.createUser(user: user)
-        UsersAPI.shared.getAllUsers()
+        UsersAPI.shared.getAllUsers { data in }
     }
         
     @IBAction func loginPressed(_ sender: UIButton) {

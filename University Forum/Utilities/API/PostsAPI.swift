@@ -24,15 +24,13 @@ class PostsAPI {
     }
     
     
-    func getAllPosts() {
+    func getAllPosts(completion: @escaping (_ data: [Any]) -> ()) {
         let db = Firestore.firestore()
         db.collection(Collection.Posts).getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
+            if let _ = err {
+                completion([])
             } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
+                completion(querySnapshot!.documents)
             }
         }
     }
