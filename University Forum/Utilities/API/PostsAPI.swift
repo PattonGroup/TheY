@@ -11,10 +11,16 @@ import FirebaseFirestore
 
 class PostsAPI {
     static let shared: PostsAPI = PostsAPI()
+    static let collectionName: String = Collection.Posts
     
     func createPost(post: Dictionary<String, Any>) {
-        let collection = Firestore.firestore().collection(Collection.Posts)
-        collection.addDocument(data: post)
+        Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: post) { err in
+            if let err = err {
+                SharedFunc.showError(title: "Error", errMsg: err.localizedDescription)
+            } else {
+                SharedFunc.showSuccess(title: "Success", message: "You have successfully created a university.")
+            }
+        }
     }
     
     

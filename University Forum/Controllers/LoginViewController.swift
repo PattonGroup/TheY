@@ -22,9 +22,19 @@ class LoginViewController: UIViewController {
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
 //        errorLoginTextfield?.text = " "
         
-//        FireStoreAPICall.shared.getAllPosts()
-        let fe
-        PostsAPI.shared.createPost(feed: )
+        PostsAPI.shared.getAllPosts()
+        
+        let user: [String: Any] = [
+            "email": "ian@gmail.com",
+            "firstname": "Ian",
+            "lastname": "Test",
+            "gender": "Male",
+            "role": "Admin",
+            "universitys_tied": ["1", "2", "3", "4", "5"],
+            "updatedAt": Date()
+        ]
+        UsersAPI.shared.createUser(user: user)
+        UsersAPI.shared.getAllUsers()
     }
         
     @IBAction func loginPressed(_ sender: UIButton) {
@@ -38,7 +48,7 @@ class LoginViewController: UIViewController {
                     MBProgressHUD.hide(for: self.view, animated: true)
                     if let e = error {
                         print(e)
-                        SharedFunc.showError(errMsg: e.localizedDescription)
+                        SharedFunc.showError(title: "Authentication Error", errMsg: e.localizedDescription)
 //                        self.errorLoginTextfield?.text = e.localizedDescription
                     } else {
                         self.performSegue(withIdentifier: "LoginToView", sender: self)

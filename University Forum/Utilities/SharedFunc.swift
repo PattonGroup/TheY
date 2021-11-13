@@ -90,8 +90,13 @@ class SharedFunc {
         textfield.rightView = rightPadding
     }
     
-    static func showError(errMsg: String){
-        let banner = GrowingNotificationBanner(title: "Authentication Error", subtitle: errMsg, style: .danger)
+    static func showError(title: String, errMsg: String){
+        let banner = GrowingNotificationBanner(title: title, subtitle: errMsg, style: .danger)
+        banner.show()
+    }
+    
+    static func showSuccess(title: String, message: String){
+        let banner = GrowingNotificationBanner(title: title, subtitle: message, style: .success)
         banner.show()
     }
     
