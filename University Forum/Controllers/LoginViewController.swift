@@ -21,42 +21,43 @@ class LoginViewController: UIViewController {
         SharedFunc.applyTextfieldFormatting(emailTextfield)
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
         
-        PostsAPI.shared.getAllPosts { data in }
-        
-        let user: [String: Any] = [
-            "email": "ian@gmail.com",
-            "firstname": "Ian",
-            "lastname": "Test",
-            "gender": "Male",
-            "role": "Admin",
-            "universitys_tied": ["1", "2", "3", "4", "5"],
-            "updatedAt": Date()
-        ]
-        UsersAPI.shared.createUser(user: user)
-        UsersAPI.shared.getAllUsers { data in }
+//        PostsAPI.shared.getAllPosts { data in }
+//
+//        let user: [String: Any] = [
+//            "email": "ian@gmail.com",
+//            "firstname": "Ian",
+//            "lastname": "Test",
+//            "gender": "Male",
+//            "role": "Admin",
+//            "universitys_tied": ["1", "2", "3", "4", "5"],
+//            "updatedAt": Date()
+//        ]
+//        UsersAPI.shared.createUser(user: user)
+//        UsersAPI.shared.getAllUsers { data in }
     }
         
     @IBAction func loginPressed(_ sender: UIButton) {
         self.view.endEditing(true)
-        
-        if validated() {
-            if let email = emailTextfield.text, let password = passwordTextfield.text {
-                
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    if let e = error {
-                        print(e)
-                        SharedFunc.showError(title: "Authentication Error", errMsg: e.localizedDescription)
-//                        self.errorLoginTextfield?.text = e.localizedDescription
-                    } else {
-                        self.performSegue(withIdentifier: "LoginToView", sender: self)
-                    }
-                   
-                }
-                    
-            }
-        }
+        self.performSegue(withIdentifier: "LoginToView", sender: self)
+//
+//        if validated() {
+//            if let email = emailTextfield.text, let password = passwordTextfield.text {
+//
+//                MBProgressHUD.showAdded(to: self.view, animated: true)
+//                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                    MBProgressHUD.hide(for: self.view, animated: true)
+//                    if let e = error {
+//                        print(e)
+//                        SharedFunc.showError(title: "Authentication Error", errMsg: e.localizedDescription)
+////                        self.errorLoginTextfield?.text = e.localizedDescription
+//                    } else {
+//                        self.performSegue(withIdentifier: "LoginToView", sender: self)
+//                    }
+//
+//                }
+//
+//            }
+//        }
   
     }
     

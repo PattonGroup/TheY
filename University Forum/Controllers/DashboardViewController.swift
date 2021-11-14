@@ -7,8 +7,10 @@
 
 import AVKit
 import UIKit
+import ARKit
 
-class DashboardViewController: UIViewController {
+class DashboardViewController: UIViewController, ARSCNViewDelegate {
+    @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(TopMenuCell.nib, forCellReuseIdentifier: TopMenuCell.identifier)
@@ -26,9 +28,74 @@ class DashboardViewController: UIViewController {
     var dataSource: [NSDictionary] = [[:],[:],[:],[:],[:],[:],[:],[:],[:],[:]]
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
+    var session: ARSession {
+        return sceneView.session
+    }
+    
+    // Create video player
+    let isaVideoPlayer: AVPlayer = {
+        //load Isa video from bundle
+        guard let url = Bundle.main.url(forResource: "isa video", withExtension: "mp4", subdirectory: "art.scnassets") else {
+            print("Could not find video file")
+            return AVPlayer()
+        }
+        
+        return AVPlayer(url: url)
+    }()
+    let pragueVideoPlayer: AVPlayer = {
+        //load Prague video from bundle
+        guard let url = Bundle.main.url(forResource: "prague video", withExtension: "mp4", subdirectory: "art.scnassets") else {
+            print("Could not find video file")
+            return AVPlayer()
+        }
+        
+        return AVPlayer(url: url)
+    }()
+    let fightClubVideoPlayer: AVPlayer = {
+        //load Prague video from bundle
+        guard let url = Bundle.main.url(forResource: "fight club video", withExtension: "mov", subdirectory: "art.scnassets") else {
+            print("Could not find video file")
+            return AVPlayer()
+        }
+        
+        return AVPlayer(url: url)
+    }()
+    let homerVideoPlayer: AVPlayer = {
+        //load Prague video from bundle
+        guard let url = Bundle.main.url(forResource: "homer video", withExtension: "mov", subdirectory: "art.scnassets") else {
+            print("Could not find video file")
+            return AVPlayer()
+        }
+        
+        return AVPlayer(url: url)
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    private func setup(){
+        guard let referenceImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
+            fatalError("Missing expected asset catalog resources.")
+        }
+
+        sceneView.delegate = self
+        sceneView.session.delegate = self
+        let configuration = ARImageTrackingConfiguration()
+        
+        guard let trackingImages = ARReferenceImage.referenceImages(inGroupNamed: "AR Resources", bundle: nil) else {
+            print("Could not load images")
+            return
+        }
+        
+        // Setup Configuration
+        configuration.trackingImages = trackingImages
+        configuration.maximumNumberOfTrackedImages = 4
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "University Hangouts"
@@ -48,13 +115,62 @@ class DashboardViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        pausePlayedVideos()
+        
+        // Prevent the screen from being dimmed to avoid interuppting the AR experience.
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        // Start the AR experience
+        resetTracking()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        pausePlayedVideos()
+        super.viewWillDisappear(animated)
+        
+        session.pause()
     }
     
+    func resetTracking() {
+        let configuration = ARImageTrackingConfiguration()
+        session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    
+    public func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
+        let node = SCNNode()
+        
+        // Show video overlaid on image
+        if let imageAnchor = anchor as? ARImageAnchor {
+            
+            // Create a plane
+            let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
+            if imageAnchor.referenceImage.name == "prague image" {
+                // Set AVPlayer as the plane's texture and play
+                plane.firstMaterial?.diffuse.contents = self.pragueVideoPlayer
+                self.pragueVideoPlayer.play()
+                self.pragueVideoPlayer.volume = 0.4
+            } else if imageAnchor.referenceImage.name == "fight club image" {
+                plane.firstMaterial?.diffuse.contents = self.fightClubVideoPlayer
+                self.fightClubVideoPlayer.play()
+            } else if imageAnchor.referenceImage.name == "homer image" {
+                plane.firstMaterial?.diffuse.contents = self.homerVideoPlayer
+                self.homerVideoPlayer.play()
+            } else {
+                plane.firstMaterial?.diffuse.contents = self.isaVideoPlayer
+                self.isaVideoPlayer.play()
+                self.isaVideoPlayer.isMuted = true
+            }
+            
+            let planeNode = SCNNode(geometry: plane)
+            
+            // Rotate the plane to match the anchor
+            planeNode.eulerAngles.x = -.pi / 2
+            
+            // Add plane node to parent
+            node.addChildNode(planeNode)
+        }
+        
+        return node
+    }
     
     
     // MARK: - Navigation
@@ -273,6 +389,81 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 //                }
 //            }
 //        }
+    }
+}
+
+extension DashboardViewController: ARSessionDelegate {
+    
+    // MARK: - ARSessionDelegate
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        guard error is ARError else { return }
+        
+        let errorWithInfo = error as NSError
+        let messages = [
+            errorWithInfo.localizedDescription,
+            errorWithInfo.localizedFailureReason,
+            errorWithInfo.localizedRecoverySuggestion
+        ]
+        
+        // Use `flatMap(_:)` to remove optional error messages.
+        let errorMessage = messages.compactMap({ $0 }).joined(separator: "\n")
+        
+        DispatchQueue.main.async {
+            self.displayErrorMessage(title: "The AR session failed.", message: errorMessage)
+        }
+    }
+    
+    func sessionWasInterrupted(_ session: ARSession) {
+        blurView.isHidden = false
+        statusViewController.showMessage("""
+        SESSION INTERRUPTED
+        The session will be reset after the interruption has ended.
+        """, autoHide: false)
+    }
+    
+    func sessionInterruptionEnded(_ session: ARSession) {
+        blurView.isHidden = true
+        statusViewController.showMessage("RESETTING SESSION")
+        
+        restartExperience()
+    }
+    
+    func sessionShouldAttemptRelocalization(_ session: ARSession) -> Bool {
+        return true
+    }
+    
+    // MARK: - Error handling
+    
+    func displayErrorMessage(title: String, message: String) {
+        // Blur the background.
+        blurView.isHidden = false
+        
+        // Present an alert informing about the error that has occurred.
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let restartAction = UIAlertAction(title: "Restart Session", style: .default) { _ in
+            alertController.dismiss(animated: true, completion: nil)
+            self.blurView.isHidden = true
+            self.resetTracking()
+        }
+        alertController.addAction(restartAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Interface Actions
+    
+    func restartExperience() {
+        guard isRestartAvailable else { return }
+        isRestartAvailable = false
+        
+        statusViewController.cancelAllScheduledMessages()
+        
+        resetTracking()
+        
+        // Disable restart for a while in order to give the session time to restart.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.isRestartAvailable = true
+        }
     }
 }
 

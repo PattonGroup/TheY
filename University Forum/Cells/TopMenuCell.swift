@@ -45,7 +45,13 @@ extension TopMenuCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopMenuCollectionViewCell.identifier, for: indexPath) as! TopMenuCollectionViewCell
-        cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
+        
+        if indexPath.row == 0 {
+            cell.imgIcon.image = UIImage(systemName: "camera.circle")
+            cell.lblTitle.text = ""
+        }else{
+            cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
+        }
         return cell
     }
     
