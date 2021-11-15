@@ -14,13 +14,19 @@ class TopMenuCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgIcon: UIImageView!
     
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     var menuItem: TopMenuItem? {
         didSet {
             setupMenu()
         }
     }
     
-    
+    func configureMenu(isFirstMenu: Bool = false) {
+        widthConstraint.constant = isFirstMenu ?  40 : 30
+        heightConstraint.constant = isFirstMenu ?  40 : 30
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

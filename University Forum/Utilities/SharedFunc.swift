@@ -10,8 +10,13 @@ import AVKit
 import UIKit
 import NotificationBannerSwift
 
+protocol SharedFuncDelegate {
+    func didSelectTopItem(index: Int)
+}
+
 class SharedFunc {
     static let shared = SharedFunc()
+    var delegate: SharedFuncDelegate?
     
     static func createVideoThumbnail(from url: URL) -> UIImage? {
         

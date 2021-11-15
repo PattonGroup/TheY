@@ -8,6 +8,7 @@
 import AVKit
 import UIKit
 
+
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
@@ -33,6 +34,7 @@ class DashboardViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "University Hangouts"
         
+        SharedFunc.shared.delegate = self
         SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
         GlobalCache.shared.delegate = self
         
@@ -100,6 +102,28 @@ class DashboardViewController: UIViewController {
             }
         }
 
+}
+
+extension DashboardViewController: SharedFuncDelegate {
+    func didSelectTopItem(index: Int) {
+        switch index {
+        case 0:
+            self.performSegue(withIdentifier: "ImageDetection", sender: self)
+            break
+        
+        case 1:
+            break
+            
+        case 2:
+            break
+            
+        case 3:
+            break
+            
+        default:
+            break
+        }
+    }
 }
 
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {

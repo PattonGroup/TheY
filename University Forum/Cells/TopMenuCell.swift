@@ -45,7 +45,15 @@ extension TopMenuCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopMenuCollectionViewCell.identifier, for: indexPath) as! TopMenuCollectionViewCell
-        cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
+        if indexPath.row == 0 {
+            cell.imgIcon.image = UIImage(named: "camera-icon")?.withRenderingMode(.alwaysTemplate)
+            cell.imgIcon.tintColor = .darkGray
+            cell.lblTitle.text = ""
+            cell.configureMenu(isFirstMenu: true)
+        }else{
+            cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
+            cell.configureMenu()
+        }
         return cell
     }
     
@@ -55,6 +63,10 @@ extension TopMenuCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        SharedFunc.shared.delegate?.didSelectTopItem(index: indexPath.row)
     }
     
 }

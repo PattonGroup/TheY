@@ -44,6 +44,7 @@
 		3C85186226F0A36400BDA3D9 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C85186026F0A36400BDA3D9 /* PostTableViewCell.xib */; };
 		3C85186426F0A7AD00BDA3D9 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C85186326F0A7AD00BDA3D9 /* Feed.swift */; };
 		3C87D266273C23540018DABA /* ARImageDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C87D265273C23540018DABA /* ARImageDetection.swift */; };
+		3C97FB162742AADC0025BF39 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C97FB152742AADC0025BF39 /* ARViewController.swift */; };
 		3CA2A03426EA9E520018A9CB /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA2A03326EA9E520018A9CB /* CacheManager.swift */; };
 		3CAF9232273D6D9D006065C5 /* PostsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF9231273D6D9C006065C5 /* PostsAPI.swift */; };
 		3CAF9234273D6DB3006065C5 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CAF9233273D6DB3006065C5 /* Enumerations.swift */; };
@@ -97,6 +98,7 @@
 		3C85186026F0A36400BDA3D9 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		3C85186326F0A7AD00BDA3D9 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 		3C87D265273C23540018DABA /* ARImageDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARImageDetection.swift; sourceTree = "<group>"; };
+		3C97FB152742AADC0025BF39 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		3CA2A03326EA9E520018A9CB /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		3CAF9231273D6D9C006065C5 /* PostsAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsAPI.swift; sourceTree = "<group>"; };
 		3CAF9233273D6DB3006065C5 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				3C2CB5A126E5225A0078F95A /* LoginViewController.swift */,
+				3C97FB152742AADC0025BF39 /* ARViewController.swift */,
 				3CBBE0FA2723180600F5178C /* SignupViewController.swift */,
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
@@ -398,6 +401,7 @@
 				3C85184F26EC25CA00BDA3D9 /* VideoTableViewCell.swift in Sources */,
 				3C85185626EC384600BDA3D9 /* GlobalCache.swift in Sources */,
 				3C2CB5A426E522650078F95A /* DashboardViewController.swift in Sources */,
+				3C97FB162742AADC0025BF39 /* ARViewController.swift in Sources */,
 				3CAF9234273D6DB3006065C5 /* Enumerations.swift in Sources */,
 				3C797A1D26E71ED20046E663 /* UniversityCell.swift in Sources */,
 				3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */,

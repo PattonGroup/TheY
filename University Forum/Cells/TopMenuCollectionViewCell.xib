@@ -46,8 +46,10 @@
             </constraints>
             <size key="customSize" width="201" height="245"/>
             <connections>
+                <outlet property="heightConstraint" destination="yx6-N5-klG" id="3UG-2A-5eT"/>
                 <outlet property="imgIcon" destination="0Mb-80-69L" id="b6e-ET-Gzc"/>
                 <outlet property="lblTitle" destination="VTr-x1-Ym6" id="wqA-IU-wIh"/>
+                <outlet property="widthConstraint" destination="r1R-Gv-vOi" id="ef6-NV-jTZ"/>
             </connections>
             <point key="canvasLocation" x="247.10144927536234" y="155.02232142857142"/>
         </collectionViewCell>

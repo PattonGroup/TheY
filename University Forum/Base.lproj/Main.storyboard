@@ -262,6 +262,7 @@
                     <connections>
                         <outlet property="tableView" destination="AOP-v5-3VR" id="HcW-UJ-QZ9"/>
                         <segue destination="bOb-rz-pav" kind="show" identifier="showUniversity" id="MCy-ZK-ynT"/>
+                        <segue destination="M89-JF-Ipd" kind="show" identifier="ImageDetection" animates="NO" id="cd2-vf-I9v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4b-7Z-koE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -569,6 +570,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VQz-BI-Ccy" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1024.6376811594205" y="803.57142857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Y6t-z2-1wL">
+            <objects>
+                <viewController storyboardIdentifier="ARViewController" id="M89-JF-Ipd" customClass="ARViewController" customModule="HTXY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sGN-qk-hBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49T-Hk-VSa">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="07R-NV-f7l"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="49T-Hk-VSa" firstAttribute="leading" secondItem="07R-NV-f7l" secondAttribute="leading" id="RUL-Sx-ZbR"/>
+                            <constraint firstAttribute="bottom" secondItem="49T-Hk-VSa" secondAttribute="bottom" id="d8C-v3-UgV"/>
+                            <constraint firstItem="49T-Hk-VSa" firstAttribute="top" secondItem="07R-NV-f7l" secondAttribute="top" id="gTf-Ai-X58"/>
+                            <constraint firstItem="07R-NV-f7l" firstAttribute="trailing" secondItem="49T-Hk-VSa" secondAttribute="trailing" id="kzq-Ii-487"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="g88-hU-Dgd"/>
+                    <connections>
+                        <outlet property="containerView" destination="49T-Hk-VSa" id="mo0-JN-Uu8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kFo-Qt-iGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1844.9275362318842" y="837.72321428571422"/>
         </scene>
     </scenes>
     <designables>
