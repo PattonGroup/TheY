@@ -11,6 +11,7 @@ target 'University Forum' do
   pod 'TagListView', '~> 1.0'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'NotificationBannerSwift', '~> 3.0.0'
   pod 'IQKeyboardManagerSwift'

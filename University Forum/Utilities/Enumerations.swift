@@ -11,5 +11,6 @@ enum Collection {
     static let Posts: String = "posts"
     static let Users: String = "users"
     static let Universities: String = "universities"
+    static let Photos: String = "photos"
 }
 

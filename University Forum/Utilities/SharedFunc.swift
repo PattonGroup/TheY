@@ -105,4 +105,23 @@ class SharedFunc {
         banner.show()
     }
     
+    static func getString(_ args: Any?) -> String {
+        if let val = args as? String {
+            return val
+        }
+        
+        if let val = args as? Int {
+            return "\(val)"
+        }
+        
+        if let val = args as? CGFloat {
+            return "\(val)"
+        }
+        
+        if let val = args as? Double {
+            return "\(val)"
+        }
+        
+        return ""
+    }
 }
