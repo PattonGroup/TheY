@@ -45,6 +45,17 @@ class UniversityViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func didTapCreatePost(_ sender: Any) {
+        let vc = self.storyboard!.instantiateViewController(identifier: "PostViewController") as! PostViewController
+        let transition = CATransition()
+           transition.duration = 0.5
+           transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+           transition.type = CATransitionType.moveIn
+           transition.subtype = CATransitionSubtype.fromTop
+           self.navigationController?.view.layer.add(transition, forKey: nil)
+           self.navigationController?.pushViewController(vc, animated: false)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         
     }
@@ -85,17 +96,16 @@ class UniversityViewController: UIViewController {
 
 extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0, 1:
+        case 0:
             return 1
             
         default:
             return feedsDatasource.count
-    
         }
     }
     
@@ -105,11 +115,6 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: UnivesityBannerCell.identifier, for: indexPath) as! UnivesityBannerCell
             cell.imgBanner.image = UIImage(named: university!.imageName)
             cell.imgBanner.contentMode = .scaleAspectFill
-            return cell
-            
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: PostTableViewCell.identifier, for: indexPath) as! PostTableViewCell
-            cell.delegate = self
             return cell
             
         default:
@@ -141,10 +146,10 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
                 asset = AVAsset(url: url)
                 playerItem = AVPlayerItem(asset: asset,
                                           automaticallyLoadedAssetKeys: requiredAssetKeys)
-                playerItem.addObserver(self,
-                                       forKeyPath: #keyPath(AVPlayerItem.status),
-                                       options: [.old, .new],
-                                       context: &playerItemContext)
+//                playerItem.addObserver(self,
+//                                       forKeyPath: #keyPath(AVPlayerItem.status),
+//                                       options: [.old, .new],
+//                                       context: &playerItemContext)
                 
                 
     //            cell.avPlayer = AVPlayer(url: url)
@@ -181,15 +186,6 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
 extension UniversityViewController: PostTableViewCellDelegate {
     func initiateWritePost() {
         print(#function)
-        
-        let vc = self.storyboard!.instantiateViewController(identifier: "PostViewController") as! PostViewController
-        let transition = CATransition()
-           transition.duration = 0.5
-           transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-           transition.type = CATransitionType.moveIn
-           transition.subtype = CATransitionSubtype.fromTop
-           self.navigationController?.view.layer.add(transition, forKey: nil)
-           self.navigationController?.pushViewController(vc, animated: false)
     }
     
     func initiatePhotoPost() {

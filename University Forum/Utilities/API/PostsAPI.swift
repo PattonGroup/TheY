@@ -53,49 +53,55 @@ class PostsAPI {
         }
     }
     
-    func saveData(post: [String: Any], image: UIImage, completion: @escaping (Bool) -> ()) {
+    func saveData(post: [String: Any], image: UIImage?, completion: @escaping (Bool) -> ()) {
         let db = Firestore.firestore()
         let storage = Storage.storage()
         
-        guard let photoData = image.jpegData(compressionQuality: 0.5) else {
-            return
-        }
-        
-        let uploadMetaData = StorageMetadata()
-        uploadMetaData.contentType = "image/jpeg"
-        
-        let documentID: String = UUID().uuidString
-        let storageRef = storage.reference().child(documentID).child(documentID)
-        let uploadTask = storageRef.putData(photoData, metadata: uploadMetaData) { uploadMetaData, error in
-            if let error = error {
-                print("ERROR: UPLOAD REF \(String(describing: uploadMetaData))  failed. \(error.localizedDescription)")
+        if let img = image {
+            guard let photoData = img.jpegData(compressionQuality: 0.5) else {
+                return
             }
-        }
-        
-        
-        uploadTask.observe(.success) { snapshot in
-            print("Upload to firevase storage was successful")
             
-            let ref = db.collection(PostsAPI.collectionName).document(documentID).collection("details").document(documentID)
-            ref.setData(post) { error in
-                guard error == nil else {
-                    print("failed")
+            let uploadMetaData = StorageMetadata()
+            uploadMetaData.contentType = "image/jpeg"
+            
+            let documentID: String = UUID().uuidString
+            let storageRef = storage.reference().child(documentID).child(documentID)
+            let uploadTask = storageRef.putData(photoData, metadata: uploadMetaData) { uploadMetaData, error in
+                if let error = error {
+                    print("ERROR: UPLOAD REF \(String(describing: uploadMetaData))  failed. \(error.localizedDescription)")
+                }
+            }
+            
+            
+            uploadTask.observe(.success) { snapshot in
+                print("Upload to firevase storage was successful")
+                
+                let ref = db.collection(PostsAPI.collectionName).document(documentID).collection("details").document(documentID)
+                ref.setData(post) { error in
+                    guard error == nil else {
+                        print("failed")
+                        return completion(false)
+                    }
+                    print("success")
+                }
+                completion(true)
+            }
+            
+            
+            uploadTask.observe(.failure) { snapshot in
+                if let error = snapshot.error {
+                    print("Error: Upload task for file \(documentID) failed, in spot \(documentID)")
+                }
+                completion(true)
+            }
+        }else{
+            Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: post) { err in
+                if let err = err {
                     return completion(false)
                 }
-                print("success")
+                completion(true)
             }
-            
-            
-            
-            completion(true)
-        }
-        
-        
-        uploadTask.observe(.failure) { snapshot in
-            if let error = snapshot.error {
-                print("Error: Upload task for file \(documentID) failed, in spot \(documentID)")
-            }
-            completion(true)
         }
     }
     

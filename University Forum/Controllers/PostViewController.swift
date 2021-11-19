@@ -10,8 +10,11 @@ import UIKit
 class PostViewController: UIViewController {
     @IBOutlet weak var txtTextView: UITextView!
     @IBOutlet weak var lblWritePost: UILabel!
+    @IBOutlet weak var txtTextViewHC: NSLayoutConstraint!
     
     var imagePicker = UIImagePickerController()
+    var universityID: String = ""
+    var image: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +33,22 @@ class PostViewController: UIViewController {
     }
     
     @IBAction func didTapPost(_ sender: Any) {
+        let post: [String: Any] = [
+            "documentID": "",
+            "userID": "1",
+            "universityID": universityID,
+            "postDescription": txtTextView.text,
+        ]
         
+        PostsAPI.shared.saveData(post: post, image: nil) { success in
+            if success {
+                SharedFunc.showSuccess(title: SharedMessages.success, message: SharedMessages.successPostCreation)
+            }else{
+                SharedFunc.showError(title: SharedMessages.failed, errMsg: SharedMessages.failedPostCreation)
+            }
+        }
     }
+    
     
     func showSourceTypeSelection(){
         let title = "Source Type"
@@ -104,11 +121,14 @@ extension PostViewController: UITextViewDelegate {
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
         let txt: String = String((textView.text as NSString).replacingCharacters(in: range, with: text))
-        
         lblWritePost.isHidden = txt.count > 0
         
+        textView.isScrollEnabled = false
+        var frame = textView.frame
+        frame.size.height = textView.contentSize.height
+        txtTextViewHC.constant = frame.height + 30
+        textView.isScrollEnabled = true
         
         return true
     }

@@ -14,3 +14,9 @@ enum Collection {
     static let Photos: String = "photos"
 }
 
+enum SharedMessages {
+    static let success: String = "Success!"
+    static let successPostCreation: String = "You have successfully created a post. Your post is under review."
+    static let failed: String = "Failed"
+    static let failedPostCreation: String = "There was an error while creating your post. Please try again later."
+}

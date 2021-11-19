@@ -20,24 +20,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         SharedFunc.applyTextfieldFormatting(emailTextfield)
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
-        
-        
-        
-        let post: [String: Any] = [
-            "email": "test@gmail.com",
-            "documentID": "",
-            "userID": "1",
-            "role": "Admin",
-            "postDescription": "This is a test description now",
-            "universities_tied": ["1", "2"]
-        ]
-        
-        PostsAPI.shared.saveData(post: post, image: UIImage(named: "covid19")!) { _ in
-            
-            PostsAPI.shared.getAllPosts { data in
-                print("DATA: \(data.)")
-            }
-        }
 
         
 //        let user: [String: Any] = [
