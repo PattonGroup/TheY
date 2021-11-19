@@ -20,19 +20,30 @@ class PostViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
         txtTextView.textContainerInset = UIEdgeInsets(top: 12.5, left: 10, bottom: 10, right: 10)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(didTapAnywhere))
+        self.view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
+    @objc func didTapAnywhere(){
+        self.view.endEditing(true)
+    }
 
     @IBAction func didTapPhoto(_ sender: Any) {
+        self.view.endEditing(true)
         showSourceTypeSelection()
     }
     
     @IBAction func didTapClose(_ sender: Any) {
+        self.view.endEditing(true)
         self.navigationController?.popViewController(animated: false)
     }
     
     @IBAction func didTapPost(_ sender: Any) {
+        self.view.endEditing(true)
+        
+        
         let post: [String: Any] = [
             "documentID": "",
             "userID": "1",
@@ -125,9 +136,8 @@ extension PostViewController: UITextViewDelegate {
         lblWritePost.isHidden = txt.count > 0
         
         textView.isScrollEnabled = false
-        var frame = textView.frame
-        frame.size.height = textView.contentSize.height
-        txtTextViewHC.constant = frame.height + 30
+        let size = textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.infinity))
+        txtTextViewHC.constant = size.height + 30
         textView.isScrollEnabled = true
         
         return true
