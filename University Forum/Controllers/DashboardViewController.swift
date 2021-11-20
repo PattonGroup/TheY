@@ -30,6 +30,12 @@ class DashboardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+        
+        // Do any additional setup after loading the view
+    }
+    
+    private func setup(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "University Hangouts"
@@ -41,7 +47,10 @@ class DashboardViewController: UIViewController {
         var frame = CGRect.zero
         frame.size.height = .leastNormalMagnitude
         tableView.tableHeaderView = UIView(frame: frame)
-        // Do any additional setup after loading the view
+        
+        PostsAPI.shared.getAllPosts { data in
+            
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

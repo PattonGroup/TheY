@@ -6,15 +6,23 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class PostViewController: UIViewController {
     @IBOutlet weak var txtTextView: UITextView!
     @IBOutlet weak var lblWritePost: UILabel!
     @IBOutlet weak var txtTextViewHC: NSLayoutConstraint!
+    @IBOutlet weak var imgPhotoPost: UIImageView!
+    
     
     var imagePicker = UIImagePickerController()
     var universityID: String = ""
-    var image: UIImage?
+    var image: UIImage? {
+        didSet {
+            imgPhotoPost.isHidden = image == nil
+            imgPhotoPost.image = image
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,21 +50,27 @@ class PostViewController: UIViewController {
     
     @IBAction func didTapPost(_ sender: Any) {
         self.view.endEditing(true)
-        
-        
+    
         let post: [String: Any] = [
-            "documentID": "",
-            "userID": "1",
+            "postAt": Date(),
+            "userID": "2",
             "universityID": universityID,
-            "postDescription": txtTextView.text,
+            "postDescription": SharedFunc.getString(txtTextView.text),
+            "videoURLPath": "",
+            "photoURLPath": "",
+            "status": "Pending"
         ]
         
-        PostsAPI.shared.saveData(post: post, image: nil) { success in
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        PostsAPI.shared.saveData(post: post, image: self.image) { success in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            
             if success {
                 SharedFunc.showSuccess(title: SharedMessages.success, message: SharedMessages.successPostCreation)
             }else{
                 SharedFunc.showError(title: SharedMessages.failed, errMsg: SharedMessages.failedPostCreation)
             }
+            self.navigationController?.popViewController(animated: false)
         }
     }
     
@@ -149,7 +163,8 @@ extension PostViewController: UIImagePickerControllerDelegate, UINavigationContr
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: false) {
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-               
+                self.image = image
+                
             }
         }
     }

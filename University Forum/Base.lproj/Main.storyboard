@@ -222,7 +222,7 @@
                                 <action selector="didTapBack:" destination="bOb-rz-pav" id="0sV-M5-A1v"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Create Post" id="Qlc-sb-5wv">
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="Qlc-sb-5wv">
                             <connections>
                                 <action selector="didTapCreatePost:" destination="bOb-rz-pav" id="TCc-RJ-MtM"/>
                             </connections>
@@ -326,7 +326,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KTO-Jq-Pq4">
-                                <rect key="frame" x="0.0" y="88" width="414" height="308.5"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="60"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="m2T-O2-wFw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -341,8 +341,8 @@
                                             <outlet property="delegate" destination="wlY-n8-Uzb" id="T3S-0H-fz3"/>
                                         </connections>
                                     </textView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="covid19" translatesAutoresizingMaskIntoConstraints="NO" id="1zb-Ff-bNB">
-                                        <rect key="frame" x="0.0" y="60" width="414" height="248.5"/>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="covid19" translatesAutoresizingMaskIntoConstraints="NO" id="1zb-Ff-bNB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="248.5"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -375,6 +375,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imgPhotoPost" destination="1zb-Ff-bNB" id="Sxm-kp-SEF"/>
                         <outlet property="lblWritePost" destination="mVn-gp-54G" id="T26-jb-Mh8"/>
                         <outlet property="txtTextView" destination="m2T-O2-wFw" id="YAg-Xq-ijZ"/>
                         <outlet property="txtTextViewHC" destination="QDT-C0-YRS" id="7MM-z4-jCc"/>

@@ -15,10 +15,10 @@ import AVFoundation
 
 class PostsAPI {
     static let shared: PostsAPI = PostsAPI()
-    static let collectionName: String = Collection.Posts
+    let collectionName: String = Collection.Posts
     
     func createPost(post: Dictionary<String, Any>) {
-        Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: post) { err in
+        Firestore.firestore().collection(collectionName).addDocument(data: post) { err in
             if let err = err {
                 SharedFunc.showError(title: "Error", errMsg: err.localizedDescription)
             } else {
@@ -30,8 +30,14 @@ class PostsAPI {
     
     func getAllPosts(completion: @escaping (_ data: [Any]) -> ()) {
         let db = Firestore.firestore()
-        db.collection(Collection.Posts).getDocuments() { (querySnapshot, err) in
-            print(querySnapshot)
+        db.collection(collectionName).getDocuments() { (querySnapshot, err) in
+            print(querySnapshot!.documents.count)
+            
+            if let values = querySnapshot?.documents {
+                for val in values {
+                    print(val.data())
+                }
+            }
             if let _ = err {
                 completion([])
             } else {
@@ -42,7 +48,7 @@ class PostsAPI {
     
     func getPost(id: String, completion: @escaping (_ post: NSDictionary) -> Void ) {
         let db = Firestore.firestore()
-        db.collection(Collection.Posts).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
+        db.collection(collectionName).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -62,45 +68,37 @@ class PostsAPI {
                 return
             }
             
+            var postData: [String: Any] = post
             let uploadMetaData = StorageMetadata()
             uploadMetaData.contentType = "image/jpeg"
             
             let documentID: String = UUID().uuidString
-            let storageRef = storage.reference().child(documentID).child(documentID)
+            let storageRef = storage.reference().child(documentID).child(SharedFunc.generateImageNameBasedOnDate())
             let uploadTask = storageRef.putData(photoData, metadata: uploadMetaData) { uploadMetaData, error in
                 if let error = error {
                     print("ERROR: UPLOAD REF \(String(describing: uploadMetaData))  failed. \(error.localizedDescription)")
                 }
+                
+                completion(error == nil)
             }
             
             
-            uploadTask.observe(.success) { snapshot in
+            uploadTask.observe(.success) { [self] snapshot in
                 print("Upload to firevase storage was successful")
-                
-                let ref = db.collection(PostsAPI.collectionName).document(documentID).collection("details").document(documentID)
-                ref.setData(post) { error in
-                    guard error == nil else {
-                        print("failed")
-                        return completion(false)
-                    }
-                    print("success")
+
+                postData["photoURLPath"] = snapshot.reference.fullPath
+                Firestore.firestore().collection(collectionName).addDocument(data: postData) { error in
+                    completion(error == nil)
                 }
-                completion(true)
             }
             
             
             uploadTask.observe(.failure) { snapshot in
-                if let error = snapshot.error {
-                    print("Error: Upload task for file \(documentID) failed, in spot \(documentID)")
-                }
-                completion(true)
+                completion(false)
             }
         }else{
-            Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: post) { err in
-                if let err = err {
-                    return completion(false)
-                }
-                completion(true)
+            Firestore.firestore().collection(collectionName).addDocument(data: post) { err in
+                completion(err == nil)
             }
         }
     }

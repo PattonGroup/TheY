@@ -124,4 +124,10 @@ class SharedFunc {
         
         return ""
     }
+    
+    static func generateImageNameBasedOnDate() -> String {
+        let date = Date.timeIntervalBetween1970AndReferenceDate
+        let timeInterval = Int(TimeInterval(date))
+        return "img\(timeInterval)"
+    }
 }
