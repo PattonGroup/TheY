@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol GlobalCacheDelegate {
-    func didSelectUniversity(university: University)
+    func didSelectUniversity(university: UniversityResponseModel)
 }
 
 class GlobalCache {

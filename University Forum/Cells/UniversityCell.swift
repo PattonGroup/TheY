@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UniversityCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!{
@@ -24,6 +25,7 @@ class UniversityCell: UITableViewCell {
     static let nib: UINib = UINib(nibName: "UniversityCell", bundle: nil)
     
     var universityArray: [University] = []
+    var universityDatasource: [UniversityResponseModel] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -41,14 +43,14 @@ class UniversityCell: UITableViewCell {
 
 extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Constants.shared.universityArray.count
+        return universityDatasource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UniversityCollectionViewCell.identifier, for: indexPath) as! UniversityCollectionViewCell
-        cell.imgView.image = UIImage(named: Constants.shared.universityArray[indexPath.row].imageName)
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
+        SharedFunc.loadImage(imageView: cell.imgView, urlString: universityDatasource[indexPath.row].bannerURLPath)
         return cell
     }
 
@@ -65,8 +67,7 @@ extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("SELECTED UNIVERSITY AT INDEX: \(indexPath.row)")
-        GlobalCache.shared.delegate?.didSelectUniversity(university: Constants.shared.universityArray[indexPath.row])
+        GlobalCache.shared.delegate?.didSelectUniversity(university: universityDatasource[indexPath.row])
     }
     
 }

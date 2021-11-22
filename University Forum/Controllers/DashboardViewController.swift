@@ -7,7 +7,8 @@
 
 import AVKit
 import UIKit
-
+import Kingfisher
+import MBProgressHUD
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
@@ -23,11 +24,12 @@ class DashboardViewController: UIViewController {
     }
     
     
-    var selectedUniversity: University?
-    var dataSource: [NSDictionary] = [[:],[:],[:],[:],[:],[:],[:],[:],[:],[:]]
+    var selectedUniversity: UniversityResponseModel?
+    var dataSource: [PostResponseModel] = []
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
-    
+    var universityDatasource: [UniversityResponseModel] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -48,9 +50,7 @@ class DashboardViewController: UIViewController {
         frame.size.height = .leastNormalMagnitude
         tableView.tableHeaderView = UIView(frame: frame)
         
-        PostsAPI.shared.getAllPosts { data in
-            
-        }
+        getAllData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,6 +66,36 @@ class DashboardViewController: UIViewController {
         pausePlayedVideos()
     }
     
+    private func getAllData() {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        
+        let group = DispatchGroup()
+
+        // MARK:  Fetch all the universities
+        group.enter()
+        UniversityAPI.shared.getAllUniversity { data in
+            print("Universities: \(data)")
+            self.universityDatasource = data
+            self.tableView.reloadSections([1], with: .none)
+            group.leave()
+        }
+        
+        // MARK: Fetch all posts
+        group.enter()
+        PostsAPI.shared.getAllPosts {[self] data in
+            print("Posts: \(data)")
+            dataSource = data
+            SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
+            tableView.reloadSections([2], with: .none)
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            print("both done")
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
+    }
     
     
     // MARK: - Navigation
@@ -142,7 +172,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 2 ?  10 : 1
+        return section == 2 ?  dataSource.count : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -153,6 +183,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.separatorInset.left = self.view.frame.width
             cell.selectionStyle = .none
             
+            
+            
             return cell
             
         case 1:
@@ -160,6 +192,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.reloadData()
             cell.separatorInset.left = 0
             cell.selectionStyle = .none
+            cell.universityDatasource = self.universityDatasource
             return cell
             
         default:
@@ -311,7 +344,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 extension DashboardViewController: GlobalCacheDelegate {
-    func didSelectUniversity(university: University) {
+    func didSelectUniversity(university: UniversityResponseModel) {
         SharedFunc.initializeObserver(isAdd: false, vc: self, cellCache: cellCache)
         self.selectedUniversity = university
         self.performSegue(withIdentifier: "showUniversity", sender: nil)

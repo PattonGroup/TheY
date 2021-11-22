@@ -9,6 +9,7 @@ import Foundation
 import AVKit
 import UIKit
 import NotificationBannerSwift
+import Kingfisher
 
 protocol SharedFuncDelegate {
     func didSelectTopItem(index: Int)
@@ -129,5 +130,30 @@ class SharedFunc {
         let date = Date.timeIntervalBetween1970AndReferenceDate
         let timeInterval = Int(TimeInterval(date))
         return "img\(timeInterval)"
+    }
+    
+    static func loadImage(imageView: UIImageView, urlString: String) {
+        let url = URL(string: urlString)
+        let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
+                    |> RoundCornerImageProcessor(cornerRadius: 20)
+        imageView.kf.indicatorType = .activity
+        imageView.kf.setImage(
+            with: url,
+            placeholder: UIImage(named: "placeholderImage"),
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(1)),
+                .cacheOriginalImage
+            ])
+        {
+            result in
+            switch result {
+            case .success(let value):
+                print("Task done for: \(value.source.url?.absoluteString ?? "")")
+            case .failure(let error):
+                print("Job failed: \(error.localizedDescription)")
+            }
+        }
     }
 }

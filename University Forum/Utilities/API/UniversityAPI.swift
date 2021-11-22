@@ -8,11 +8,12 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 
-class UniversitiesAPI {
-    static let shared: UniversitiesAPI = UniversitiesAPI()
-    static let collectionName: String = Collection.Universities
+class UniversityAPI {
+    static let shared: UniversityAPI = UniversityAPI()
+    let collectionName: String = Collection.Universities
     
     func createUnviersity(university: Dictionary<String, Any>) {
         var name: String = ""
@@ -21,7 +22,7 @@ class UniversitiesAPI {
         }
         
         let db = Firestore.firestore()
-        db.collection(UsersAPI.collectionName).whereField("name", isEqualTo: name) .getDocuments() { (querySnapshot, err) in
+        db.collection(collectionName).whereField("name", isEqualTo: name) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -30,7 +31,7 @@ class UniversitiesAPI {
                     SharedFunc.showError(title: "Saving error!", errMsg: "This user already exists.")
                 }else{
                     
-                    Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: university) { err in
+                    Firestore.firestore().collection(self.collectionName).addDocument(data: university) { err in
                         if let err = err {
                             SharedFunc.showError(title: "Error", errMsg: err.localizedDescription)
                         } else {
@@ -43,20 +44,25 @@ class UniversitiesAPI {
         }
     }
     
-    func getAllUniversity(completion: @escaping (_ data: [Any]) -> ()) {
+    func getAllUniversity(completion: @escaping (_ data: [UniversityResponseModel]) -> ()) {
         let db = Firestore.firestore()
-        db.collection(Collection.Universities).getDocuments() { (querySnapshot, err) in
+        db.collection(collectionName).getDocuments() { (querySnapshot, err) in
             if let _ = err {
                 completion([])
             } else {
-                completion(querySnapshot!.documents)
+                var arr: [UniversityResponseModel] = []
+                querySnapshot?.documents.forEach { doc in
+                    arr.append(UniversityResponseModel(snapshot: doc))
+                }
+                
+                completion(arr)
             }
         }
     }
     
     func getUnviversity(id: String, completion: @escaping (_ post: NSDictionary) -> Void ) {
         let db = Firestore.firestore()
-        db.collection(Collection.Universities).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
+        db.collection(collectionName).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

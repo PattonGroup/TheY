@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 class UsersAPI {
     static let shared: UsersAPI = UsersAPI()
-    static let collectionName: String = Collection.Users
+    let collectionName: String = Collection.Users
     
     
     func createUser(user: Dictionary<String, Any>) {
@@ -22,7 +22,7 @@ class UsersAPI {
         }
         
         let db = Firestore.firestore()
-        db.collection(UsersAPI.collectionName).whereField("email", isEqualTo: email) .getDocuments() { (querySnapshot, err) in
+        db.collection(self.collectionName).whereField("email", isEqualTo: email) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -32,7 +32,7 @@ class UsersAPI {
                 }else{
                     
                     var ref: DocumentReference? = nil
-                    ref = Firestore.firestore().collection(UsersAPI.collectionName).addDocument(data: user) { err in
+                    ref = Firestore.firestore().collection(self.collectionName).addDocument(data: user) { err in
                         if let err = err {
                             print("Error adding document: \(err)")
                         } else {
@@ -50,7 +50,7 @@ class UsersAPI {
     
     func getAllUsers(completion: @escaping (_ data: [Any]) -> ()) {
         let db = Firestore.firestore()
-        db.collection(Collection.Users).getDocuments() { (querySnapshot, err) in
+        db.collection(self.collectionName).getDocuments() { (querySnapshot, err) in
             if let _ = err {
                 completion([])
             } else {
@@ -61,7 +61,7 @@ class UsersAPI {
     
     func getUser(id: String, completion: @escaping (_ post: NSDictionary) -> Void ) {
         let db = Firestore.firestore()
-        db.collection(Collection.Users).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
+        db.collection(self.collectionName).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {

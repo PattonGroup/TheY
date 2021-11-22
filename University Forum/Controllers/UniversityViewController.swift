@@ -19,14 +19,14 @@ class UniversityViewController: UIViewController {
             tableView.register(FeedsCell.nib, forCellReuseIdentifier: FeedsCell.identifier)
         }
     }
-    var university: University?
+    var university: UniversityResponseModel?
     var feedsDatasource: [Feed] = [Feed(), Feed(), Feed()]
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Patton University"
+        self.title = SharedFunc.getString(university?.name)
         // Do any additional setup after loading the view.
         tableView.sectionHeaderHeight = 0
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
@@ -113,7 +113,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: UnivesityBannerCell.identifier, for: indexPath) as! UnivesityBannerCell
-            cell.imgBanner.image = UIImage(named: university!.imageName)
+            SharedFunc.loadImage(imageView: cell.imgBanner, urlString: SharedFunc.getString(university?.bannerURLPath))
             cell.imgBanner.contentMode = .scaleAspectFill
             return cell
             

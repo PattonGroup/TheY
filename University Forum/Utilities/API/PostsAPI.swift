@@ -28,20 +28,20 @@ class PostsAPI {
     }
     
     
-    func getAllPosts(completion: @escaping (_ data: [Any]) -> ()) {
+    func getAllPosts(completion: @escaping (_ data: [PostResponseModel]) -> ()) {
         let db = Firestore.firestore()
         db.collection(collectionName).getDocuments() { (querySnapshot, err) in
             print(querySnapshot!.documents.count)
-            
-            if let values = querySnapshot?.documents {
-                for val in values {
-                    print(val.data())
-                }
-            }
+        
             if let _ = err {
                 completion([])
             } else {
-                completion(querySnapshot!.documents)
+                var arr: [PostResponseModel] = []
+                querySnapshot?.documents.forEach { doc in
+                    arr.append(PostResponseModel(snapshot: doc))
+                }
+                
+                completion(arr)
             }
         }
     }
@@ -79,18 +79,25 @@ class PostsAPI {
                     print("ERROR: UPLOAD REF \(String(describing: uploadMetaData))  failed. \(error.localizedDescription)")
                 }
                 
-                completion(error == nil)
+                storageRef.downloadURL { (url, error) in
+                   guard let downloadURL = url else {
+                       SharedFunc.showError(title: SharedMessages.failed, errMsg: SharedMessages.failedPostCreation)
+                     return completion(false)
+                   }
+                    
+                    print("DOWNLOAD URL:  \(downloadURL)")
+                    postData["photoURLPath"] = "\(downloadURL)"
+                    print("PHOTO URLPATH:  \(postData["photoURLPath"]!)")
+                    Firestore.firestore().collection(self.collectionName).addDocument(data: postData) { error in
+                        completion(error == nil)
+                    }
+                 }
             }
             
-            
-            uploadTask.observe(.success) { [self] snapshot in
-                print("Upload to firevase storage was successful")
-
-                postData["photoURLPath"] = snapshot.reference.fullPath
-                Firestore.firestore().collection(collectionName).addDocument(data: postData) { error in
-                    completion(error == nil)
-                }
-            }
+//
+//            uploadTask.observe(.success) { [self] snapshot in
+//
+//            }
             
             
             uploadTask.observe(.failure) { snapshot in
