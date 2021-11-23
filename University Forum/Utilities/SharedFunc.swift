@@ -128,7 +128,10 @@ class SharedFunc {
     
     static func getMembersCount(_ val: String) -> String {
         if let value = Double(val) {
-            return value > 1000.0 ? String(format: "%.1f", value / 1000).appending(" Members") : String(format: "%d", Int(value)).appending(" Members")
+            if value.truncatingRemainder(dividingBy: 1000) == 0 {
+                return String(format: "%dK", Int(value / 1000)).appending(" Members")
+            }
+            return value >= 1000.0 ? String(format: "%.1fK", value / 1000).appending(" Members") : String(format: "%d", Int(value)).appending(" Members")
         }
         
         return "0 Members"
