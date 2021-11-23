@@ -17,6 +17,7 @@ class TopMenuCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     var menuItem: TopMenuItem? {
         didSet {
             setupMenu()
@@ -24,8 +25,9 @@ class TopMenuCollectionViewCell: UICollectionViewCell {
     }
     
     func configureMenu(isFirstMenu: Bool = false) {
-        widthConstraint.constant = isFirstMenu ?  40 : 30
+        widthConstraint.constant = isFirstMenu ?  50 : 30
         heightConstraint.constant = isFirstMenu ?  40 : 30
+        leadingConstraint.constant = isFirstMenu ?  30 : 10
     }
     
     override func awakeFromNib() {

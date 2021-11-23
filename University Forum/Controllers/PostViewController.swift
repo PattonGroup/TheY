@@ -16,7 +16,8 @@ class PostViewController: UIViewController {
     
     
     var imagePicker = UIImagePickerController()
-    var universityID: String = ""
+    var universityID: String?
+    var universityName: String?
     var image: UIImage? {
         didSet {
             imgPhotoPost.isHidden = image == nil
@@ -54,7 +55,8 @@ class PostViewController: UIViewController {
         let post: [String: Any] = [
             "postAt": Date(),
             "userID": "2",
-            "universityID": universityID,
+            "universityName": SharedFunc.getString(universityName),
+            "universityID": SharedFunc.getString(universityID),
             "postDescription": SharedFunc.getString(txtTextView.text),
             "videoURLPath": "",
             "photoURLPath": "",

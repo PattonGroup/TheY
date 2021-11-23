@@ -8,6 +8,7 @@
 import UIKit
 import AVKit
 import AVFoundation
+import MBProgressHUD
 
 class UniversityViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
@@ -20,25 +21,35 @@ class UniversityViewController: UIViewController {
         }
     }
     var university: UniversityResponseModel?
-    var feedsDatasource: [Feed] = [Feed(), Feed(), Feed()]
+    var feedsDatasource: [PostResponseModel] = []
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = SharedFunc.getString(university?.name)
-        // Do any additional setup after loading the view.
-        tableView.sectionHeaderHeight = 0
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
-        SharedFunc.initializeCellCache(cellCache: &cellCache, count: feedsDatasource.count, isDashboard: false)
-        
+        setup()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-    
-        
+        getPosts()
     }
     
+    private func setup(){
+        self.title = SharedFunc.getString(university?.name)
+        tableView.sectionHeaderHeight = 0
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
+    }
+    
+    private func getPosts(){
+        cellCache.removeAll()
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        PostsAPI.shared.getPostFromUniversity(id: SharedFunc.getString(university?.id)) { [self] post in
+            MBProgressHUD.hide(for: self.view, animated: true)
+            feedsDatasource = post
+            SharedFunc.initializeObserver(isAdd: false, vc: self, cellCache: cellCache)
+            tableView.reloadData()
+        }
+    }
     
     @IBAction func didTapBack(_ sender: Any) {
         SharedFunc.initializeObserver(isAdd: false, vc: self, cellCache: cellCache)
@@ -47,13 +58,15 @@ class UniversityViewController: UIViewController {
     
     @IBAction func didTapCreatePost(_ sender: Any) {
         let vc = self.storyboard!.instantiateViewController(identifier: "PostViewController") as! PostViewController
+        vc.universityID = SharedFunc.getString(university?.id)
+        vc.universityName = SharedFunc.getString(university?.name)
         let transition = CATransition()
-           transition.duration = 0.5
-           transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-           transition.type = CATransitionType.moveIn
-           transition.subtype = CATransitionSubtype.fromTop
-           self.navigationController?.view.layer.add(transition, forKey: nil)
-           self.navigationController?.pushViewController(vc, animated: false)
+        transition.duration = 0.5
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = CATransitionType.moveIn
+        transition.subtype = CATransitionSubtype.fromTop
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        self.navigationController?.pushViewController(vc, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -114,30 +127,42 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: UnivesityBannerCell.identifier, for: indexPath) as! UnivesityBannerCell
             SharedFunc.loadImage(imageView: cell.imgBanner, urlString: SharedFunc.getString(university?.bannerURLPath))
-            cell.imgBanner.contentMode = .scaleAspectFill
+            cell.imgBanner.contentMode = .scaleAspectFit
+            cell.lblUniversityName.text = SharedFunc.getString(university?.name)
+            cell.lblMembers.text = SharedFunc.getMembersCount(SharedFunc.getString(university?.memberCount))
             return cell
             
         default:
-            if let cell = cellCache[indexPath.row] {
-                return cell
+            if indexPath.row < cellCache.count {
+                if let cell = cellCache[indexPath.row] {
+                    return cell
+                }
             }
             
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedsCell.identifier, for: indexPath) as! FeedsCell
             cell.separatorInset.left = 0
             cell.selectionStyle = .none
+            SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: SharedFunc.getString(university?.bannerURLPath))
+            cell.lblUniversityName.text = SharedFunc.getString(university?.name)
+            cell.lblText.text = SharedFunc.getString(feedsDatasource[indexPath.row].postDescription)
+            cell.imgPhoto.contentMode = .scaleAspectFill
+            cell.imgPhoto.layer.cornerRadius = 5
+            cell.imgPhoto.layer.masksToBounds = true
             
-            let videoURL: String = ""
+            if !feedsDatasource[indexPath.row].photoURLPath.isEmpty {
+                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: feedsDatasource[indexPath.row].photoURLPath)
+                cell.imgPhoto.isHidden = false
+            }else{
+                cell.imgPhoto.isHidden = true
+            }
+            
+            let videoURL: String = SharedFunc.getString(feedsDatasource[indexPath.row].videoURLPath)
             if videoURL.isEmpty {
                 cell.playerView.isHidden = true
-                cell.imageView?.isHidden = false
             }else{
-                let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
+                let url = URL(string: videoURL)!
                 var asset: AVAsset!
                 var playerItem: AVPlayerItem!
-
-                // Key-value observing context
-                
-
                 let requiredAssetKeys = [
                     "playable",
                     "hasProtectedContent"
@@ -151,10 +176,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
 //                                       options: [.old, .new],
 //                                       context: &playerItemContext)
                 
-                
-    //            cell.avPlayer = AVPlayer(url: url)
                 cell.avPlayer = AVPlayer(playerItem: playerItem)
-    //            cell.avPlayer?.removeObserver(self, forKeyPath: "rate")
                 cell.avPlayer?.addObserver(self, forKeyPath: "rate", options: [], context: nil)
                 let playerController = AVPlayerViewController()
 

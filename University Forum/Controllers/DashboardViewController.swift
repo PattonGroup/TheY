@@ -29,6 +29,8 @@ class DashboardViewController: UIViewController {
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
     var universityDatasource: [UniversityResponseModel] = []
+    let group = DispatchGroup()
+    var isFirstLoad: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class DashboardViewController: UIViewController {
     private func setup(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.title = "University Hangouts"
+        self.title = "They"
         
         SharedFunc.shared.delegate = self
         SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
@@ -50,11 +52,16 @@ class DashboardViewController: UIViewController {
         frame.size.height = .leastNormalMagnitude
         tableView.tableHeaderView = UIView(frame: frame)
         
-        getAllData()
+        SharedFunc.initializeObserver(isAdd: true, vc: self, cellCache: cellCache)
+        getAllUniversity()
+        getAllPosts()
+        getNotifiedAfterFetching()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        SharedFunc.initializeObserver(isAdd: true, vc: self, cellCache: cellCache)
+        if !isFirstLoad {
+            getAllPosts()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -66,21 +73,17 @@ class DashboardViewController: UIViewController {
         pausePlayedVideos()
     }
     
-    private func getAllData() {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        
-        
-        let group = DispatchGroup()
-
+    private func getAllUniversity(){
         // MARK:  Fetch all the universities
         group.enter()
-        UniversityAPI.shared.getAllUniversity { data in
+        UniversityAPI.shared.getAllUniversity { [self] data in
             print("Universities: \(data)")
-            self.universityDatasource = data
-            self.tableView.reloadSections([1], with: .none)
+            universityDatasource = data
+            tableView.reloadData()
             group.leave()
         }
-        
+    }
+    private func getAllPosts() {
         // MARK: Fetch all posts
         group.enter()
         PostsAPI.shared.getAllPosts {[self] data in
@@ -90,9 +93,12 @@ class DashboardViewController: UIViewController {
             tableView.reloadSections([2], with: .none)
             group.leave()
         }
-        
+    }
+    
+    private func getNotifiedAfterFetching(){
         group.notify(queue: .main) {
             print("both done")
+            self.isFirstLoad = false
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
@@ -182,9 +188,6 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionView.reloadData()
             cell.separatorInset.left = self.view.frame.width
             cell.selectionStyle = .none
-            
-            
-            
             return cell
             
         case 1:
@@ -200,53 +203,62 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
             
+            let university = SharedFunc.getUnivesityDetails(id:  SharedFunc.getString(dataSource[indexPath.row].universityID), universityList: universityDatasource)
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedsCell.identifier, for: indexPath) as! FeedsCell
             cell.separatorInset.left = 0
-            cell.imgPhoto.isHidden = indexPath.row % 2 == 0
             cell.selectionStyle = .none
-//            let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
-//            let avPlayer = AVPlayer(url: url!);
-//            cell.playerView?.playerLayer.player = avPlayer;
-//            cell.playerView?.playerLayer.player?.allowsExternalPlayback = true
-//            cell.configureCell(imageUrl: nil, description: "Video", videoUrl: "https://v.pinimg.com/videos/720p/0d/29/18/0d2918323789eabdd7a12cdd658eda04.mp4")
-//            cell.configureCell(imageUrl: nil, description: "", videoUrl:  "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+            SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: university.bannerURLPath)
+            cell.lblUniversityName.text = university.name
+            cell.lblText.text = SharedFunc.getString(dataSource[indexPath.row].postDescription)
+            cell.imgPhoto.contentMode = .scaleAspectFill
+            cell.imgPhoto.layer.cornerRadius = 5
+            cell.imgPhoto.layer.masksToBounds = true
             
-//            DispatchQueue.main.async {
-//                cell.imgPhoto.image = SharedFunc.createVideoThumbnail(from: url!)
-//            }
-            let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
-            var asset: AVAsset!
-//            var player: AVPlayer!
-            var playerItem: AVPlayerItem!
-
-            // Key-value observing context
+            if !dataSource[indexPath.row].photoURLPath.isEmpty {
+                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: dataSource[indexPath.row].photoURLPath)
+                cell.imgPhoto.isHidden = false
+            }else{
+                cell.imgPhoto.isHidden = true
+            }
             
-
-            let requiredAssetKeys = [
-                "playable",
-                "hasProtectedContent"
-            ]
-
-            asset = AVAsset(url: url)
-            playerItem = AVPlayerItem(asset: asset,
-                                      automaticallyLoadedAssetKeys: requiredAssetKeys)
-            playerItem.addObserver(self,
-                                   forKeyPath: #keyPath(AVPlayerItem.status),
-                                   options: [.old, .new],
-                                   context: &playerItemContext)
+            let videoURL: String = SharedFunc.getString(dataSource[indexPath.row].videoURLPath)
+            cell.playerView.isHidden = videoURL.isEmpty
             
-            
-//            cell.avPlayer = AVPlayer(url: url)
-            cell.avPlayer = AVPlayer(playerItem: playerItem)
-            cell.avPlayer?.addObserver(self, forKeyPath: "rate", options: [], context: nil)
-            let playerController = AVPlayerViewController()
-
-            playerController.player = cell.avPlayer
-            playerController.title = "test"
-            self.addChild(playerController)
-            cell.playerView.addSubview(playerController.view)
-            playerController.view.frame = cell.playerView.bounds
-            cellCache[indexPath.row] = cell
+            if !videoURL.isEmpty {
+                let url = URL(string: videoURL)!
+                var asset: AVAsset!
+                //            var player: AVPlayer!
+                var playerItem: AVPlayerItem!
+                
+                // Key-value observing context
+                
+                
+                let requiredAssetKeys = [
+                    "playable",
+                    "hasProtectedContent"
+                ]
+                
+                asset = AVAsset(url: url)
+                playerItem = AVPlayerItem(asset: asset,
+                                          automaticallyLoadedAssetKeys: requiredAssetKeys)
+                playerItem.addObserver(self,
+                                       forKeyPath: #keyPath(AVPlayerItem.status),
+                                       options: [.old, .new],
+                                       context: &playerItemContext)
+                
+                
+                //            cell.avPlayer = AVPlayer(url: url)
+                cell.avPlayer = AVPlayer(playerItem: playerItem)
+                cell.avPlayer?.addObserver(self, forKeyPath: "rate", options: [], context: nil)
+                let playerController = AVPlayerViewController()
+                
+                playerController.player = cell.avPlayer
+                playerController.title = "test"
+                self.addChild(playerController)
+                cell.playerView.addSubview(playerController.view)
+                playerController.view.frame = cell.playerView.bounds
+                cellCache[indexPath.row] = cell
+            }
             return cell
         }
     }

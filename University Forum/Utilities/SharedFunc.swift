@@ -126,6 +126,14 @@ class SharedFunc {
         return ""
     }
     
+    static func getMembersCount(_ val: String) -> String {
+        if let value = Double(val) {
+            return value > 1000.0 ? String(format: "%.1f", value / 1000).appending(" Members") : String(format: "%d", Int(value)).appending(" Members")
+        }
+        
+        return "0 Members"
+    }
+    
     static func generateImageNameBasedOnDate() -> String {
         let date = Date.timeIntervalBetween1970AndReferenceDate
         let timeInterval = Int(TimeInterval(date))
@@ -155,5 +163,15 @@ class SharedFunc {
                 print("Job failed: \(error.localizedDescription)")
             }
         }
+    }
+    
+    static func getUnivesityDetails(id: String, universityList: [UniversityResponseModel]) -> UniversityResponseModel {
+        for university in universityList {
+            if university.id == id {
+                return university
+            }
+        }
+        
+        return UniversityResponseModel()
     }
 }

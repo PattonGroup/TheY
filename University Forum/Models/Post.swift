@@ -42,6 +42,7 @@ struct PostResponseModel {
     var postDescription: String
     var status: String
     var universityID: String
+    var universityName: String
     var userID: String
     var videoURLPath: String
 
@@ -54,5 +55,6 @@ struct PostResponseModel {
        universityID = SharedFunc.getString(snapshotValue["universityID"])
        userID = SharedFunc.getString(snapshotValue["userID"])
        videoURLPath = SharedFunc.getString(snapshotValue["videoURLPath"])
+       universityName = SharedFunc.getString(snapshotValue["universityName"])
     }
 }

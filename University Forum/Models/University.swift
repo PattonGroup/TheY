@@ -41,6 +41,15 @@ struct UniversityResponseModel {
         ]
     }
 
+    init(){
+        self.documentID = ""
+        self.id = ""
+        self.name = ""
+        self.memberCount = ""
+        self.bannerURLPath = ""
+        self.videoURLPath = ""
+    }
+    
    init(snapshot: QueryDocumentSnapshot) {
         documentID = snapshot.documentID
         let snapshotValue = snapshot.data()

@@ -46,15 +46,34 @@ class PostsAPI {
         }
     }
     
-    func getPost(id: String, completion: @escaping (_ post: NSDictionary) -> Void ) {
+    func getPostFromUniversity(id: String, completion: @escaping (_ data: [PostResponseModel]) -> ()) {
+        let db = Firestore.firestore()
+        db.collection(collectionName).whereField("universityID", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion([])
+            } else {
+                var arr: [PostResponseModel] = []
+                querySnapshot?.documents.forEach { doc in
+                    arr.append(PostResponseModel(snapshot: doc))
+                }
+                completion(arr)
+            }
+        }
+    }
+    
+    func getPost(id: String, completion: @escaping (_ data: [PostResponseModel]) -> ()) {
         let db = Firestore.firestore()
         db.collection(collectionName).whereField("id", isEqualTo: id) .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
+                completion([])
             } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
+                var arr: [PostResponseModel] = []
+                querySnapshot?.documents.forEach { doc in
+                    arr.append(PostResponseModel(snapshot: doc))
                 }
+                completion(arr)
             }
         }
     }

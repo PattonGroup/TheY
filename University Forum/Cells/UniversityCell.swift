@@ -48,7 +48,7 @@ extension UniversityCell: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UniversityCollectionViewCell.identifier, for: indexPath) as! UniversityCollectionViewCell
-        cell.layer.cornerRadius = 10
+        cell.layer.cornerRadius = 5
         cell.layer.masksToBounds = true
         SharedFunc.loadImage(imageView: cell.imgView, urlString: universityDatasource[indexPath.row].bannerURLPath)
         return cell
