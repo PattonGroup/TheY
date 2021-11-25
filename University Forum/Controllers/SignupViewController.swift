@@ -29,7 +29,7 @@ class SignupViewController: UIViewController {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                     if let e = error {
                         print(e)
-                        SharedFunc.showError(errMsg: e.localizedDescription)
+                        SharedFunc.showError(title: SharedMessages.failed, errMsg: e.localizedDescription)
                     } else {
                         self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
                     }
