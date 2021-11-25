@@ -42,7 +42,7 @@ class DashboardViewController: UIViewController {
     private func setup(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.title = "They"
+        self.title = "University Hangouts"
         
         SharedFunc.shared.delegate = self
         SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
@@ -213,6 +213,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imgPhoto.contentMode = .scaleAspectFill
             cell.imgPhoto.layer.cornerRadius = 5
             cell.imgPhoto.layer.masksToBounds = true
+            cell.separatorInset.left = (indexPath.row == dataSource.count - 1) ? self.view.frame.width : 0
             
             if !dataSource[indexPath.row].photoURLPath.isEmpty {
                 SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: dataSource[indexPath.row].photoURLPath)
