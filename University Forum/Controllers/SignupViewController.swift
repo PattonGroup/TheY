@@ -23,23 +23,19 @@ class SignupViewController: UIViewController {
     
     @IBAction func didTapSignup(_ sender: Any) {
         self.view.endEditing(true)
-        
-        self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
-        
-//        if validated() {
-//            if let email = emailTextfield.text, let password = passwordTextfield.text {
-//                
-//                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-//                    if let e = error {
-//                        print(e)
-//                        SharedFunc.showError(errMsg: e.localizedDescription)
-//                    } else {
-//                        self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
-//                    }
-//                }
-//            }
-//        }
-        
+        if validated() {
+            if let email = emailTextfield.text, let password = passwordTextfield.text {
+                
+                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                    if let e = error {
+                        print(e)
+                        SharedFunc.showError(errMsg: e.localizedDescription)
+                    } else {
+                        self.performSegue(withIdentifier: "SignupToShowMain", sender: self)
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func didTapSignin(_ sender: Any) {
