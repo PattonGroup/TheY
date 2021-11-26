@@ -273,7 +273,7 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-            case 0:  return 80
+            case 0:  return 65
             case 1: return 100
             default: return UITableView.automaticDimension
         }

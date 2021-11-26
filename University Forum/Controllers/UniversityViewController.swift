@@ -127,7 +127,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: UnivesityBannerCell.identifier, for: indexPath) as! UnivesityBannerCell
             SharedFunc.loadImage(imageView: cell.imgBanner, urlString: SharedFunc.getString(university?.bannerURLPath))
-            cell.imgBanner.contentMode = .scaleAspectFit
+            cell.imgBanner.contentMode = SharedFunc.getString(university?.id) == "1" ? .scaleAspectFit : .scaleAspectFill
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
             cell.lblMembers.text = SharedFunc.getMembersCount(SharedFunc.getString(university?.memberCount))
             return cell

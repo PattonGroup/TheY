@@ -17,19 +17,19 @@
                 <rect key="frame" x="0.0" y="0.0" width="201" height="245"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-X9-miR">
-                        <rect key="frame" x="10" y="95" width="181" height="55"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="UOY-X9-miR">
+                        <rect key="frame" x="0.0" y="100" width="201" height="45"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homekit" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0Mb-80-69L">
-                                <rect key="frame" x="75.5" y="-1" width="30" height="30"/>
+                                <rect key="frame" x="85.5" y="-1" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="r1R-Gv-vOi"/>
                                     <constraint firstAttribute="height" constant="30" id="yx6-N5-klG"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTr-x1-Ym6">
-                                <rect key="frame" x="71.5" y="37" width="38.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRICULUM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTr-x1-Ym6">
+                                <rect key="frame" x="66.5" y="33" width="68" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,8 +40,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="UOY-X9-miR" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="BDR-F8-8WH"/>
-                <constraint firstAttribute="trailing" secondItem="UOY-X9-miR" secondAttribute="trailing" constant="10" id="FGj-hi-dYs"/>
-                <constraint firstItem="UOY-X9-miR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="qFJ-uM-tKD"/>
+                <constraint firstAttribute="trailing" secondItem="UOY-X9-miR" secondAttribute="trailing" id="FGj-hi-dYs"/>
+                <constraint firstItem="UOY-X9-miR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qFJ-uM-tKD"/>
                 <constraint firstItem="UOY-X9-miR" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="sc7-zQ-Mfc"/>
             </constraints>
             <size key="customSize" width="201" height="245"/>

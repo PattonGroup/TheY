@@ -45,27 +45,18 @@ extension TopMenuCell: UICollectionViewDelegate, UICollectionViewDelegateFlowLay
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopMenuCollectionViewCell.identifier, for: indexPath) as! TopMenuCollectionViewCell
-//        cell.imgIcon.backgroundColor = .blue
-        if indexPath.row == 0 {
-            cell.imgIcon.image = UIImage(named: "camera-icon")?.withRenderingMode(.alwaysTemplate)
-            cell.imgIcon.tintColor = .darkGray
-            cell.lblTitle.text = ""
-            cell.configureMenu(isFirstMenu: true)
-//            cell.imgIcon.contentMode = .scaleAspectFill
-        }else{
-            cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
-            cell.configureMenu()
-//            cell.imgIcon.contentMode = .scaleAspectFit
-        }
+        cell.menuItem = Constants.shared.topMenuItems[indexPath.row]
+        cell.configureMenu()
+
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 80, height: 80)
+        return CGSize(width: UIScreen.main.bounds.width / 4, height: 65)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

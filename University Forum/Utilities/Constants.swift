@@ -12,12 +12,10 @@ class Constants {
     
     
     let topMenuItems: [TopMenuItem] = [
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 1"),
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 2"),
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 3"),
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 4"),
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 5"),
-        TopMenuItem(menuIconName: "perks-icon", menuTitle: "Menu 6")
+        TopMenuItem(menuIconName: "augmented-reality-icon", menuTitle: "AR"),
+        TopMenuItem(menuIconName: "curriculum-icon", menuTitle: "CURRICULUM"),
+        TopMenuItem(menuIconName: "training-icon", menuTitle: "TRAINING"),
+        TopMenuItem(menuIconName: "task-icon", menuTitle: "TASK"),
     ]
     
     
