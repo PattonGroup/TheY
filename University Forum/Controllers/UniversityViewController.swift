@@ -11,6 +11,7 @@ import AVFoundation
 import MBProgressHUD
 
 class UniversityViewController: UIViewController {
+    @IBOutlet weak var createPostImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.sectionFooterHeight = 0
@@ -38,6 +39,9 @@ class UniversityViewController: UIViewController {
         self.title = SharedFunc.getString(university?.name)
         tableView.sectionHeaderHeight = 0
         tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
+        
+        createPostImageView.makePerfectRounded()
+        
     }
     
     private func getPosts(){
@@ -54,6 +58,9 @@ class UniversityViewController: UIViewController {
     @IBAction func didTapBack(_ sender: Any) {
         SharedFunc.initializeObserver(isAdd: false, vc: self, cellCache: cellCache)
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func didTapLogout(_ sender: Any) {
+        SharedFunc.logout(self)
     }
     
     @IBAction func didTapCreatePost(_ sender: Any) {

@@ -37,21 +37,21 @@ class LoginViewController: UIViewController {
         
     @IBAction func loginPressed(_ sender: UIButton) {
         self.view.endEditing(true)
-        if validated() {
-            if let email = emailTextfield.text, let password = passwordTextfield.text {
-
-                MBProgressHUD.showAdded(to: self.view, animated: true)
-                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                    MBProgressHUD.hide(for: self.view, animated: true)
-                    if let e = error {
-                        print(e)
-                        SharedFunc.showError(title: "Authentication Error", errMsg: e.localizedDescription)
-                    } else {
+//        if validated() {
+//            if let email = emailTextfield.text, let password = passwordTextfield.text {
+//
+//                MBProgressHUD.showAdded(to: self.view, animated: true)
+//                Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+//                    MBProgressHUD.hide(for: self.view, animated: true)
+//                    if let e = error {
+//                        print(e)
+//                        SharedFunc.showError(title: "Authentication Error", errMsg: e.localizedDescription)
+//                    } else {
                         self.performSegue(withIdentifier: "LoginToView", sender: self)
-                    }
-                }
-            }
-        }
+//                    }
+//                }
+//            }
+//        }
 
     }
     

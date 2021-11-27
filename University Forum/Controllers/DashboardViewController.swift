@@ -42,7 +42,7 @@ class DashboardViewController: UIViewController {
     private func setup(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
-        self.title = "University Hangouts"
+        self.title = "Univercity Hangouts"
         
         SharedFunc.shared.delegate = self
         SharedFunc.initializeCellCache(cellCache: &cellCache, count: dataSource.count)
@@ -147,6 +147,9 @@ class DashboardViewController: UIViewController {
             }
         }
 
+    @IBAction func didTapLogout(_ sender: Any) {
+        SharedFunc.logout(self)
+    }
 }
 
 extension DashboardViewController: SharedFuncDelegate {

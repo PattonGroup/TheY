@@ -177,4 +177,19 @@ class SharedFunc {
         
         return UniversityResponseModel()
     }
+    
+    
+    static func logout(_ vc: UIViewController){
+        let alert = UIAlertController.init(title: "", message: "Are you sure you want to logout?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { _ in
+            let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+            let nav = UINavigationController(rootViewController: loginVC)
+            loginVC.window?.rootViewController = nav
+            loginVC.window?.makeKeyAndVisible()
+        }))
+        vc.present(alert, animated: true, completion: nil)
+    }
 }
+
