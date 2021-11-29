@@ -54,7 +54,7 @@ class PostViewController: UIViewController {
     
         let post: [String: Any] = [
             "postAt": Date(),
-            "userID": "2",
+            "userID": SharedFunc.getUserID(),
             "universityName": SharedFunc.getString(universityName),
             "universityID": SharedFunc.getString(universityID),
             "postDescription": SharedFunc.getString(txtTextView.text),

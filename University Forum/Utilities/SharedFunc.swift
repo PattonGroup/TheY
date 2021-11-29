@@ -10,6 +10,8 @@ import AVKit
 import UIKit
 import NotificationBannerSwift
 import Kingfisher
+import Firebase
+import FirebaseAuth
 
 protocol SharedFuncDelegate {
     func didSelectTopItem(index: Int)
@@ -190,6 +192,17 @@ class SharedFunc {
             loginVC.window?.makeKeyAndVisible()
         }))
         vc.present(alert, animated: true, completion: nil)
+    }
+    
+    static func getUserID() -> String {
+        if let val = UserDefaults.standard.value(forKey: "userID") as? String {
+            return val
+        }else{
+            guard let userID = Auth.auth().currentUser?.uid as? String else { return "" }
+            UserDefaults.standard.set(userID, forKey: "userID")
+            return userID
+
+        }
     }
 }
 

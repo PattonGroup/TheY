@@ -33,7 +33,6 @@ class PostsAPI {
         db.collection(collectionName)
             .whereField("status", isEqualTo: "Approved")
             .getDocuments() { (querySnapshot, err) in
-            print(querySnapshot!.documents.count)
         
             if let _ = err {
                 completion([])

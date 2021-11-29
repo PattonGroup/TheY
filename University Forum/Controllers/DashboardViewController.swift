@@ -23,7 +23,7 @@ class DashboardViewController: UIViewController {
         }
     }
     
-    
+    let refreshControl = UIRefreshControl()
     var selectedUniversity: UniversityResponseModel?
     var dataSource: [PostResponseModel] = []
     var cellCache: [UITableViewCell?] = []
@@ -39,7 +39,7 @@ class DashboardViewController: UIViewController {
         // Do any additional setup after loading the view
     }
     
-    private func setup(){
+    @objc private func setup(){
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setHidesBackButton(true, animated: false)
         self.title = "Univercity Hangouts"
@@ -53,9 +53,21 @@ class DashboardViewController: UIViewController {
         tableView.tableHeaderView = UIView(frame: frame)
         
         SharedFunc.initializeObserver(isAdd: true, vc: self, cellCache: cellCache)
+        
+        if isFirstLoad {
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+        }
         getAllUniversity()
         getAllPosts()
         getNotifiedAfterFetching()
+        let userID = SharedFunc.getUserID()
+        
+        print("USERID: \(userID)")
+        
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(setup), for: .valueChanged)
+        tableView.addSubview(refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +111,7 @@ class DashboardViewController: UIViewController {
         group.notify(queue: .main) {
             print("both done")
             self.isFirstLoad = false
+            self.refreshControl.endRefreshing()
             MBProgressHUD.hide(for: self.view, animated: true)
         }
     }
@@ -160,12 +173,15 @@ extension DashboardViewController: SharedFuncDelegate {
             break
         
         case 1:
+            self.performSegue(withIdentifier: "showCurriculum", sender: self)
             break
             
         case 2:
+            self.performSegue(withIdentifier: "showTraining", sender: self)
             break
             
         case 3:
+            self.performSegue(withIdentifier: "showTask", sender: self)
             break
             
         default:

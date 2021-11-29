@@ -299,6 +299,9 @@
                         <outlet property="tableView" destination="AOP-v5-3VR" id="HcW-UJ-QZ9"/>
                         <segue destination="bOb-rz-pav" kind="show" identifier="showUniversity" id="MCy-ZK-ynT"/>
                         <segue destination="M89-JF-Ipd" kind="show" identifier="ImageDetection" animates="NO" id="cd2-vf-I9v"/>
+                        <segue destination="9Nm-QG-uga" kind="show" identifier="showTraining" id="vML-fe-9Di"/>
+                        <segue destination="sFC-6F-yph" kind="show" identifier="showCurriculum" id="a5v-ip-f6f"/>
+                        <segue destination="1YJ-Oj-apu" kind="show" identifier="showTask" id="g1S-bX-tU5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4b-7Z-koE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -651,6 +654,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kFo-Qt-iGO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1844.9275362318842" y="837.72321428571422"/>
+        </scene>
+        <!--Training-->
+        <scene sceneID="UdP-OA-KEr">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Training" id="9Nm-QG-uga" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RoD-P2-wFJ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8DN-Pc-Qwi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2680" y="556"/>
+        </scene>
+        <!--Curriculum-->
+        <scene sceneID="TP3-Up-M5a">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Curriculum" id="sFC-6F-yph" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="44P-H1-JQs"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6u2-Y9-Mg5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2347" y="556"/>
+        </scene>
+        <!--Task-->
+        <scene sceneID="mKP-va-lPk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Task" id="1YJ-Oj-apu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bku-CZ-dUO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KcG-bV-zfy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3033" y="556"/>
         </scene>
     </scenes>
     <designables>

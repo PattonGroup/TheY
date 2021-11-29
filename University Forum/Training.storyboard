@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Training List View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="TrainingListViewController" id="Y6W-OH-hqX" customClass="TrainingListViewController" customModule="HTXY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bcJ-Je-KMk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" name="gray-separator"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="IP2-D9-Zs5"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="FD1-GM-s82"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bcJ-Je-KMk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="7Pz-Pa-ldi"/>
+                            <constraint firstItem="bcJ-Je-KMk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9K9-Uc-XrA"/>
+                            <constraint firstAttribute="bottom" secondItem="bcJ-Je-KMk" secondAttribute="bottom" id="CrU-hu-sfV"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bcJ-Je-KMk" secondAttribute="trailing" id="Oww-D1-jB0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Fu3-gF-9Jm"/>
+                    <connections>
+                        <outlet property="tableView" destination="bcJ-Je-KMk" id="py8-6H-U1e"/>
+                        <segue destination="Pci-TD-fjt" kind="show" id="SG0-Ux-htY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="930" y="78"/>
+        </scene>
+        <!--Training Details View Controller-->
+        <scene sceneID="qGB-0b-9HW">
+            <objects>
+                <viewController storyboardIdentifier="TrainingDetailsViewController" id="Pci-TD-fjt" customClass="TrainingDetailsViewController" customModule="HTXY" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f7N-h6-WHS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="3Da-po-4GD">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Pci-TD-fjt" id="lDU-7K-1Lh"/>
+                                    <outlet property="delegate" destination="Pci-TD-fjt" id="F62-tt-gxN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vwi-g7-Rwq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3Da-po-4GD" firstAttribute="leading" secondItem="vwi-g7-Rwq" secondAttribute="leading" id="3lO-Yb-RbL"/>
+                            <constraint firstAttribute="bottom" secondItem="3Da-po-4GD" secondAttribute="bottom" id="WOd-7V-30P"/>
+                            <constraint firstItem="3Da-po-4GD" firstAttribute="top" secondItem="vwi-g7-Rwq" secondAttribute="top" id="Ybu-0d-QyZ"/>
+                            <constraint firstItem="vwi-g7-Rwq" firstAttribute="trailing" secondItem="3Da-po-4GD" secondAttribute="trailing" id="tGY-wk-0P8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="RSK-Sk-MNT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyt-fm-QqC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1794" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="gray-separator">
+            <color red="0.83529411764705885" green="0.83529411764705885" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

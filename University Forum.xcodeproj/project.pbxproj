@@ -56,6 +56,13 @@
 		3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FA2723180600F5178C /* SignupViewController.swift */; };
 		3CBBE0FD272322A200F5178C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FC272322A200F5178C /* Extension.swift */; };
 		3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD7165270DD28800D978A9 /* APIHelper.swift */; };
+		3CC811C5275516A300455C74 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C4275516A300455C74 /* Training.storyboard */; };
+		3CC811C7275516DA00455C74 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C6275516DA00455C74 /* Task.storyboard */; };
+		3CC811C9275516EF00455C74 /* Curriculum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C8275516EF00455C74 /* Curriculum.storyboard */; };
+		3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CA2755170200455C74 /* TrainingListViewController.swift */; };
+		3CC811CD2755171000455C74 /* TrainingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */; };
+		3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CE275518D900455C74 /* TrainingListCell.swift */; };
+		3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811CF275518D900455C74 /* TrainingListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +117,13 @@
 		3CBBE0FA2723180600F5178C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3CBBE0FC272322A200F5178C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3CBD7165270DD28800D978A9 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		3CC811C4275516A300455C74 /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
+		3CC811C6275516DA00455C74 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
+		3CC811C8275516EF00455C74 /* Curriculum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Curriculum.storyboard; sourceTree = "<group>"; };
+		3CC811CA2755170200455C74 /* TrainingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListViewController.swift; sourceTree = "<group>"; };
+		3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewController.swift; sourceTree = "<group>"; };
+		3CC811CE275518D900455C74 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
+		3CC811CF275518D900455C74 /* TrainingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingListCell.xib; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
 		B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +179,9 @@
 				3C797A2526E7205A0046E663 /* Models */,
 				3C797A1A26E71EB30046E663 /* Cells */,
 				3C2CB59026E51B8D0078F95A /* Main.storyboard */,
+				3CC811C8275516EF00455C74 /* Curriculum.storyboard */,
+				3CC811C4275516A300455C74 /* Training.storyboard */,
+				3CC811C6275516DA00455C74 /* Task.storyboard */,
 				3C2CB59826E51B8F0078F95A /* LaunchScreen.storyboard */,
 				3C2CB59626E51B8F0078F95A /* Assets.xcassets */,
 				3C2CB59B26E51B8F0078F95A /* Info.plist */,
@@ -194,6 +211,8 @@
 				3C77AA42272AF73500761EC3 /* TopMenuCell.xib */,
 				3C0194F1272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift */,
 				3C0194F2272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib */,
+				3CC811CE275518D900455C74 /* TrainingListCell.swift */,
+				3CC811CF275518D900455C74 /* TrainingListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -217,6 +236,8 @@
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
+				3CC811CA2755170200455C74 /* TrainingListViewController.swift */,
+				3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -335,7 +356,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C85185026EC25CA00BDA3D9 /* VideoTableViewCell.xib in Resources */,
+				3CC811C5275516A300455C74 /* Training.storyboard in Resources */,
 				3C2CB59A26E51B8F0078F95A /* LaunchScreen.storyboard in Resources */,
+				3CC811C7275516DA00455C74 /* Task.storyboard in Resources */,
 				3C797A1E26E71ED20046E663 /* UniversityCell.xib in Resources */,
 				3C85186226F0A36400BDA3D9 /* PostTableViewCell.xib in Resources */,
 				3C797A2B26E721790046E663 /* UniversityCollectionViewCell.xib in Resources */,
@@ -345,6 +368,8 @@
 				07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */,
 				3C85185A26EF167B00BDA3D9 /* UnivesityBannerCell.xib in Resources */,
 				3C77AA44272AF73500761EC3 /* TopMenuCell.xib in Resources */,
+				3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */,
+				3CC811C9275516EF00455C74 /* Curriculum.storyboard in Resources */,
 				3C2CB59226E51B8D0078F95A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +436,7 @@
 				3C3B0ABB26E8ABF800CD017E /* PlayerView.swift in Sources */,
 				3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */,
 				3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */,
+				3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */,
 				3C2CB58D26E51B8D0078F95A /* SceneDelegate.swift in Sources */,
 				3CAF9238273D70AD006065C5 /* UniversityAPI.swift in Sources */,
 				3CBBE0FD272322A200F5178C /* Extension.swift in Sources */,
@@ -422,6 +448,7 @@
 				3C2CB5A226E5225A0078F95A /* LoginViewController.swift in Sources */,
 				3C797A2326E71FEA0046E663 /* FeedsCell.swift in Sources */,
 				3CB4734626E9D545003F44D0 /* ASVideoLayerObject.swift in Sources */,
+				3CC811CD2755171000455C74 /* TrainingDetailsViewController.swift in Sources */,
 				3C85185426EC311B00BDA3D9 /* PostViewController.swift in Sources */,
 				3C2CB5A626E522780078F95A /* UniversityViewController.swift in Sources */,
 				3CA2A03426EA9E520018A9CB /* CacheManager.swift in Sources */,
@@ -432,6 +459,7 @@
 				3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */,
 				3C2CB59526E51B8D0078F95A /* University_Forum.xcdatamodeld in Sources */,
 				3CAF9236273D7065006065C5 /* UsersAPI.swift in Sources */,
+				3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */,
 				3C77AA43272AF73500761EC3 /* TopMenuCell.swift in Sources */,
 				3C797A2726E7206D0046E663 /* University.swift in Sources */,
 			);
