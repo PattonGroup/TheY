@@ -23,16 +23,16 @@
                                     <constraint firstAttribute="width" secondItem="QFd-NJ-Lzy" secondAttribute="height" multiplier="1640:680" id="GS3-cJ-3v6"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFTERSCHOOL SCHEDULE GROUPS" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-QI-qEC">
-                                <rect key="frame" x="20" y="235.5" width="374" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AFTERSCHOOL SCHEDULE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWj-QI-qEC">
+                                <rect key="frame" x="20" y="235.5" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-98-Lap">
-                                <rect key="frame" x="117" y="325.5" width="180" height="240"/>
+                                <rect key="frame" x="117" y="295.5" width="180" height="240"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB7-YE-VfW">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB7-YE-VfW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="ANm-3W-8Bc"/>
@@ -46,7 +46,7 @@
                                             <action selector="didTapGroup:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YNb-1Q-rHh"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imL-yA-6NV">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imL-yA-6NV">
                                         <rect key="frame" x="0.0" y="85" width="180" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="qKf-4i-aIM"/>
@@ -60,7 +60,7 @@
                                             <action selector="didTapGroup:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Zii-9W-xzD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-Kr-72s">
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-Kr-72s">
                                         <rect key="frame" x="0.0" y="170" width="180" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="OCl-NA-C03"/>

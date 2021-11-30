@@ -15,6 +15,7 @@ class CurriculumGroupDetailViewController: UIViewController {
     }
     
     var scheduleList: [AfterschoolScheduleModel] = []
+    var group_id: String = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,10 @@ class CurriculumGroupDetailViewController: UIViewController {
     }
     
     private func setup(){
-        AfterschoolScheduleAPI.shared.getSchedules(id: "1") { data in
+        
+        self.title = "Schedule (Group \(group_id))"
+        
+        AfterschoolScheduleAPI.shared.getSchedules(id: group_id) { data in
             self.scheduleList = data
             self.tableView.reloadData()
         }

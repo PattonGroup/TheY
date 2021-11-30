@@ -25,7 +25,7 @@ class TrainingListViewController: UIViewController {
     }
     
     private func setup(){
-        self.title = "SKILL ENHANCERS"
+        self.title = "Trainings"
         
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
