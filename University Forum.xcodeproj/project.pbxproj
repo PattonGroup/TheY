@@ -56,11 +56,19 @@
 		3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FA2723180600F5178C /* SignupViewController.swift */; };
 		3CBBE0FD272322A200F5178C /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBBE0FC272322A200F5178C /* Extension.swift */; };
 		3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBD7165270DD28800D978A9 /* APIHelper.swift */; };
+		3CC36AE5275656BD00692CBA /* TrainingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AE4275656BD00692CBA /* TrainingAPI.swift */; };
+		3CC36AE7275656FA00692CBA /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AE6275656FA00692CBA /* TrainingModel.swift */; };
+		3CC36AE927565B3800692CBA /* GradientColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AE827565B3800692CBA /* GradientColorClass.swift */; };
+		3CC36AEB275664E800692CBA /* CurriculumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AEA275664E800692CBA /* CurriculumViewController.swift */; };
+		3CC36AED275675EF00692CBA /* CurriculumGroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AEC275675EF00692CBA /* CurriculumGroupDetailViewController.swift */; };
+		3CC36AF2275678FD00692CBA /* CurriculumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AF0275678FD00692CBA /* CurriculumCell.swift */; };
+		3CC36AF3275678FD00692CBA /* CurriculumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC36AF1275678FD00692CBA /* CurriculumCell.xib */; };
+		3CC36AF5275680CD00692CBA /* AfterschoolScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AF4275680CD00692CBA /* AfterschoolScheduleModel.swift */; };
+		3CC36AF72756832100692CBA /* AfterschoolScheduleAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC36AF62756832100692CBA /* AfterschoolScheduleAPI.swift */; };
 		3CC811C5275516A300455C74 /* Training.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C4275516A300455C74 /* Training.storyboard */; };
 		3CC811C7275516DA00455C74 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C6275516DA00455C74 /* Task.storyboard */; };
 		3CC811C9275516EF00455C74 /* Curriculum.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811C8275516EF00455C74 /* Curriculum.storyboard */; };
 		3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CA2755170200455C74 /* TrainingListViewController.swift */; };
-		3CC811CD2755171000455C74 /* TrainingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */; };
 		3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CE275518D900455C74 /* TrainingListCell.swift */; };
 		3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811CF275518D900455C74 /* TrainingListCell.xib */; };
 /* End PBXBuildFile section */
@@ -117,11 +125,19 @@
 		3CBBE0FA2723180600F5178C /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		3CBBE0FC272322A200F5178C /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		3CBD7165270DD28800D978A9 /* APIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHelper.swift; sourceTree = "<group>"; };
+		3CC36AE4275656BD00692CBA /* TrainingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingAPI.swift; sourceTree = "<group>"; };
+		3CC36AE6275656FA00692CBA /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		3CC36AE827565B3800692CBA /* GradientColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientColorClass.swift; sourceTree = "<group>"; };
+		3CC36AEA275664E800692CBA /* CurriculumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumViewController.swift; sourceTree = "<group>"; };
+		3CC36AEC275675EF00692CBA /* CurriculumGroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumGroupDetailViewController.swift; sourceTree = "<group>"; };
+		3CC36AF0275678FD00692CBA /* CurriculumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumCell.swift; sourceTree = "<group>"; };
+		3CC36AF1275678FD00692CBA /* CurriculumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurriculumCell.xib; sourceTree = "<group>"; };
+		3CC36AF4275680CD00692CBA /* AfterschoolScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterschoolScheduleModel.swift; sourceTree = "<group>"; };
+		3CC36AF62756832100692CBA /* AfterschoolScheduleAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterschoolScheduleAPI.swift; sourceTree = "<group>"; };
 		3CC811C4275516A300455C74 /* Training.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Training.storyboard; sourceTree = "<group>"; };
 		3CC811C6275516DA00455C74 /* Task.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		3CC811C8275516EF00455C74 /* Curriculum.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Curriculum.storyboard; sourceTree = "<group>"; };
 		3CC811CA2755170200455C74 /* TrainingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListViewController.swift; sourceTree = "<group>"; };
-		3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingDetailsViewController.swift; sourceTree = "<group>"; };
 		3CC811CE275518D900455C74 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		3CC811CF275518D900455C74 /* TrainingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingListCell.xib; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
@@ -211,8 +227,6 @@
 				3C77AA42272AF73500761EC3 /* TopMenuCell.xib */,
 				3C0194F1272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift */,
 				3C0194F2272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib */,
-				3CC811CE275518D900455C74 /* TrainingListCell.swift */,
-				3CC811CF275518D900455C74 /* TrainingListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -221,6 +235,8 @@
 			isa = PBXGroup;
 			children = (
 				3C797A2626E7206D0046E663 /* University.swift */,
+				3CC36AE6275656FA00692CBA /* TrainingModel.swift */,
+				3CC36AF4275680CD00692CBA /* AfterschoolScheduleModel.swift */,
 				3C85186326F0A7AD00BDA3D9 /* Post.swift */,
 				3C0194F5272AFAED00E5F2E6 /* TopMenuItem.swift */,
 			);
@@ -236,8 +252,8 @@
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
-				3CC811CA2755170200455C74 /* TrainingListViewController.swift */,
-				3CC811CC2755171000455C74 /* TrainingDetailsViewController.swift */,
+				3CC36AEE275678CE00692CBA /* Training */,
+				3CC36AEF275678E200692CBA /* Curriculum */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,6 +276,7 @@
 				3CBD7165270DD28800D978A9 /* APIHelper.swift */,
 				3C85185526EC384600BDA3D9 /* GlobalCache.swift */,
 				3CBBE0FC272322A200F5178C /* Extension.swift */,
+				3CC36AE827565B3800692CBA /* GradientColorClass.swift */,
 				3CAF9233273D6DB3006065C5 /* Enumerations.swift */,
 				3C0194F7272AFDAB00E5F2E6 /* Constants.swift */,
 				3C87D265273C23540018DABA /* ARImageDetection.swift */,
@@ -273,6 +290,8 @@
 				3CAF9231273D6D9C006065C5 /* PostsAPI.swift */,
 				3CAF9235273D7065006065C5 /* UsersAPI.swift */,
 				3CAF9237273D70AD006065C5 /* UniversityAPI.swift */,
+				3CC36AF62756832100692CBA /* AfterschoolScheduleAPI.swift */,
+				3CC36AE4275656BD00692CBA /* TrainingAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -285,6 +304,27 @@
 				3CB4734526E9D545003F44D0 /* ASVideoContainer.swift */,
 			);
 			path = VideoPlayLibrary;
+			sourceTree = "<group>";
+		};
+		3CC36AEE275678CE00692CBA /* Training */ = {
+			isa = PBXGroup;
+			children = (
+				3CC811CA2755170200455C74 /* TrainingListViewController.swift */,
+				3CC811CE275518D900455C74 /* TrainingListCell.swift */,
+				3CC811CF275518D900455C74 /* TrainingListCell.xib */,
+			);
+			path = Training;
+			sourceTree = "<group>";
+		};
+		3CC36AEF275678E200692CBA /* Curriculum */ = {
+			isa = PBXGroup;
+			children = (
+				3CC36AEA275664E800692CBA /* CurriculumViewController.swift */,
+				3CC36AEC275675EF00692CBA /* CurriculumGroupDetailViewController.swift */,
+				3CC36AF0275678FD00692CBA /* CurriculumCell.swift */,
+				3CC36AF1275678FD00692CBA /* CurriculumCell.xib */,
+			);
+			path = Curriculum;
 			sourceTree = "<group>";
 		};
 		C909490BD8157D79EEAF281E /* Pods */ = {
@@ -363,6 +403,7 @@
 				3C85186226F0A36400BDA3D9 /* PostTableViewCell.xib in Resources */,
 				3C797A2B26E721790046E663 /* UniversityCollectionViewCell.xib in Resources */,
 				3C0194F4272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib in Resources */,
+				3CC36AF3275678FD00692CBA /* CurriculumCell.xib in Resources */,
 				3C797A2426E71FEA0046E663 /* FeedsCell.xib in Resources */,
 				3C2CB59726E51B8F0078F95A /* Assets.xcassets in Resources */,
 				07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */,
@@ -432,23 +473,29 @@
 				3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */,
 				3C0194F8272AFDAB00E5F2E6 /* Constants.swift in Sources */,
 				3C87D266273C23540018DABA /* ARImageDetection.swift in Sources */,
+				3CC36AEB275664E800692CBA /* CurriculumViewController.swift in Sources */,
 				3C0194F3272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift in Sources */,
 				3C3B0ABB26E8ABF800CD017E /* PlayerView.swift in Sources */,
 				3CB4734826E9D545003F44D0 /* ASVideoContainer.swift in Sources */,
 				3CB4734726E9D545003F44D0 /* ASVideoPlayerController.swift in Sources */,
+				3CC36AED275675EF00692CBA /* CurriculumGroupDetailViewController.swift in Sources */,
 				3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */,
 				3C2CB58D26E51B8D0078F95A /* SceneDelegate.swift in Sources */,
 				3CAF9238273D70AD006065C5 /* UniversityAPI.swift in Sources */,
+				3CC36AE927565B3800692CBA /* GradientColorClass.swift in Sources */,
 				3CBBE0FD272322A200F5178C /* Extension.swift in Sources */,
+				3CC36AF72756832100692CBA /* AfterschoolScheduleAPI.swift in Sources */,
 				3CAF9232273D6D9D006065C5 /* PostsAPI.swift in Sources */,
+				3CC36AE5275656BD00692CBA /* TrainingAPI.swift in Sources */,
+				3CC36AE7275656FA00692CBA /* TrainingModel.swift in Sources */,
 				3C797A1926E715BF0046E663 /* CustomView.swift in Sources */,
 				3C85185926EF167B00BDA3D9 /* UnivesityBannerCell.swift in Sources */,
 				3C85186126F0A36400BDA3D9 /* PostTableViewCell.swift in Sources */,
 				3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */,
 				3C2CB5A226E5225A0078F95A /* LoginViewController.swift in Sources */,
+				3CC36AF5275680CD00692CBA /* AfterschoolScheduleModel.swift in Sources */,
 				3C797A2326E71FEA0046E663 /* FeedsCell.swift in Sources */,
 				3CB4734626E9D545003F44D0 /* ASVideoLayerObject.swift in Sources */,
-				3CC811CD2755171000455C74 /* TrainingDetailsViewController.swift in Sources */,
 				3C85185426EC311B00BDA3D9 /* PostViewController.swift in Sources */,
 				3C2CB5A626E522780078F95A /* UniversityViewController.swift in Sources */,
 				3CA2A03426EA9E520018A9CB /* CacheManager.swift in Sources */,
@@ -457,6 +504,7 @@
 				3C85186426F0A7AD00BDA3D9 /* Post.swift in Sources */,
 				3C0194F6272AFAED00E5F2E6 /* TopMenuItem.swift in Sources */,
 				3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */,
+				3CC36AF2275678FD00692CBA /* CurriculumCell.swift in Sources */,
 				3C2CB59526E51B8D0078F95A /* University_Forum.xcdatamodeld in Sources */,
 				3CAF9236273D7065006065C5 /* UsersAPI.swift in Sources */,
 				3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */,
