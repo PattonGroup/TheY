@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="71" id="KGk-i7-Jjw" customClass="TaskCell" customModule="HTXY" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="71"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="71"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gBQ-th-Xb7">
+                        <rect key="frame" x="10" y="5" width="380" height="61"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="aeA-T0-gay">
+                                <rect key="frame" x="10" y="18" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="3Do-cn-wQY"/>
+                                    <constraint firstAttribute="width" constant="25" id="Dmp-CZ-ArE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water the plants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYx-XK-dNY">
+                                <rect key="frame" x="45" y="20" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kYx-XK-dNY" firstAttribute="leading" secondItem="aeA-T0-gay" secondAttribute="trailing" constant="10" id="0M2-82-nYG"/>
+                            <constraint firstItem="aeA-T0-gay" firstAttribute="leading" secondItem="gBQ-th-Xb7" secondAttribute="leading" constant="10" id="SUy-Ol-5TO"/>
+                            <constraint firstItem="kYx-XK-dNY" firstAttribute="top" secondItem="gBQ-th-Xb7" secondAttribute="top" constant="20" id="WYt-uc-6a3"/>
+                            <constraint firstAttribute="trailing" secondItem="kYx-XK-dNY" secondAttribute="trailing" constant="20" id="cCl-6S-F1r"/>
+                            <constraint firstAttribute="bottom" secondItem="kYx-XK-dNY" secondAttribute="bottom" constant="20" id="kYw-B7-x73"/>
+                            <constraint firstItem="aeA-T0-gay" firstAttribute="centerY" secondItem="gBQ-th-Xb7" secondAttribute="centerY" id="oYq-DN-FSi"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="gBQ-th-Xb7" secondAttribute="bottom" constant="5" id="1lm-BX-STe"/>
+                    <constraint firstAttribute="trailing" secondItem="gBQ-th-Xb7" secondAttribute="trailing" constant="10" id="Afs-ND-9v0"/>
+                    <constraint firstItem="gBQ-th-Xb7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Kba-Ma-Rnp"/>
+                    <constraint firstItem="gBQ-th-Xb7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="gzc-nT-Ijz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="containerView" destination="gBQ-th-Xb7" id="qcr-Eu-gQT"/>
+                <outlet property="imgCheck" destination="aeA-T0-gay" id="M1e-4t-zLP"/>
+                <outlet property="lblTask" destination="kYx-XK-dNY" id="g0g-NZ-TNu"/>
+            </connections>
+            <point key="canvasLocation" x="195.6521739130435" y="98.772321428571431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="unchecked" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -18,16 +18,6 @@ struct TrainingModel {
     var description: String
     var location: String
     var registration_url: String
-
-
-    init(){
-        documentID = ""
-        title = ""
-        description = ""
-        location = ""
-        registration_url = ""
-
-    }
     
    init(snapshot: QueryDocumentSnapshot) {
         documentID = snapshot.documentID

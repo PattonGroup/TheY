@@ -16,4 +16,5 @@ target 'University Forum' do
   pod 'NotificationBannerSwift', '~> 3.0.0'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher'
+  pod 'YouTubePlayer'
 end

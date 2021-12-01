@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pd2-98-Lap">
-                                <rect key="frame" x="117" y="295.5" width="180" height="240"/>
+                                <rect key="frame" x="117" y="315.5" width="180" height="240"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB7-YE-VfW">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="70"/>
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QFd-NJ-Lzy" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="00R-SG-4SC"/>
-                            <constraint firstItem="Pd2-98-Lap" firstAttribute="top" secondItem="aWj-QI-qEC" secondAttribute="bottom" constant="30" id="2IT-nu-hIY"/>
+                            <constraint firstItem="Pd2-98-Lap" firstAttribute="top" secondItem="aWj-QI-qEC" secondAttribute="bottom" constant="50" id="2IT-nu-hIY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aWj-QI-qEC" secondAttribute="trailing" constant="20" id="DFR-V4-1dP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QFd-NJ-Lzy" secondAttribute="trailing" id="JUA-Su-R37"/>
                             <constraint firstItem="Pd2-98-Lap" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Q6c-DL-fqs"/>

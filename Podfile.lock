@@ -446,6 +446,7 @@ PODS:
   - RxSwift (6.2.0)
   - SnapKit (5.0.1)
   - TagListView (1.4.1)
+  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Firebase/Auth
@@ -457,6 +458,7 @@ DEPENDENCIES:
   - NotificationBannerSwift (~> 3.0.0)
   - RxSwift
   - TagListView (~> 1.0)
+  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
@@ -484,6 +486,7 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - TagListView
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -510,7 +513,8 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
+  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: 5fdd93916ef949981271cb4fa1560c49a4afe819
+PODFILE CHECKSUM: d2fa3f41e3fe7326efe1204f780d531a8aa5b3f1
 
 COCOAPODS: 1.10.1

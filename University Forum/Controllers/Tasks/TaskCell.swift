@@ -1,29 +1,27 @@
 //
-//  CurriculumCell.swift
+//  TaskCell.swift
 //  University Forum
 //
-//  Created by Ian Talisic on 30/11/2021.
+//  Created by Ian Talisic on 01/12/2021.
 //
 
 import UIKit
 
-class CurriculumCell: UITableViewCell {
-    @IBOutlet weak var lblTime: UILabel!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var lblDescription: UILabel!
+class TaskCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var imgCheck: UIImageView!
+    @IBOutlet weak var lblTask: UILabel!
     
-    static let identifier: String = "CurriculumCell"
-    static let nib: UINib = UINib(nibName: "CurriculumCell", bundle: nil)
+    static let identifier: String = "TaskCell"
+    static let nib: UINib = UINib(nibName: "TaskCell", bundle: nil)
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         containerView.layer.cornerRadius = 6
         containerView.layer.masksToBounds = true
         
-        lblTime.textColor = .white
-        lblTitle.textColor = .white
-        lblDescription.textColor = .white
+        lblTask.textColor = .white
         // Initialization code
     }
 

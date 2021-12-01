@@ -71,6 +71,11 @@
 		3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CA2755170200455C74 /* TrainingListViewController.swift */; };
 		3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CE275518D900455C74 /* TrainingListCell.swift */; };
 		3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811CF275518D900455C74 /* TrainingListCell.xib */; };
+		3CF1FA4D2757AAC30012E9A1 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4C2757AAC30012E9A1 /* TasksViewController.swift */; };
+		3CF1FA502757AB550012E9A1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4E2757AB550012E9A1 /* TaskCell.swift */; };
+		3CF1FA512757AB550012E9A1 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4F2757AB550012E9A1 /* TaskCell.xib */; };
+		3CF1FA532757ADAD0012E9A1 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA522757ADAD0012E9A1 /* TaskModel.swift */; };
+		3CF1FA552757B1B20012E9A1 /* TaskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA542757B1B20012E9A1 /* TaskAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +145,11 @@
 		3CC811CA2755170200455C74 /* TrainingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListViewController.swift; sourceTree = "<group>"; };
 		3CC811CE275518D900455C74 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		3CC811CF275518D900455C74 /* TrainingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingListCell.xib; sourceTree = "<group>"; };
+		3CF1FA4C2757AAC30012E9A1 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
+		3CF1FA4E2757AB550012E9A1 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		3CF1FA4F2757AB550012E9A1 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
+		3CF1FA522757ADAD0012E9A1 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
+		3CF1FA542757B1B20012E9A1 /* TaskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPI.swift; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
 		B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,9 +205,6 @@
 				3C797A2526E7205A0046E663 /* Models */,
 				3C797A1A26E71EB30046E663 /* Cells */,
 				3C2CB59026E51B8D0078F95A /* Main.storyboard */,
-				3CC811C8275516EF00455C74 /* Curriculum.storyboard */,
-				3CC811C4275516A300455C74 /* Training.storyboard */,
-				3CC811C6275516DA00455C74 /* Task.storyboard */,
 				3C2CB59826E51B8F0078F95A /* LaunchScreen.storyboard */,
 				3C2CB59626E51B8F0078F95A /* Assets.xcassets */,
 				3C2CB59B26E51B8F0078F95A /* Info.plist */,
@@ -239,6 +246,7 @@
 				3CC36AF4275680CD00692CBA /* AfterschoolScheduleModel.swift */,
 				3C85186326F0A7AD00BDA3D9 /* Post.swift */,
 				3C0194F5272AFAED00E5F2E6 /* TopMenuItem.swift */,
+				3CF1FA522757ADAD0012E9A1 /* TaskModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
 				3CC36AEE275678CE00692CBA /* Training */,
 				3CC36AEF275678E200692CBA /* Curriculum */,
+				3CF1FA4B2757AA550012E9A1 /* Tasks */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +301,7 @@
 				3CAF9237273D70AD006065C5 /* UniversityAPI.swift */,
 				3CC36AF62756832100692CBA /* AfterschoolScheduleAPI.swift */,
 				3CC36AE4275656BD00692CBA /* TrainingAPI.swift */,
+				3CF1FA542757B1B20012E9A1 /* TaskAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -309,6 +319,7 @@
 		3CC36AEE275678CE00692CBA /* Training */ = {
 			isa = PBXGroup;
 			children = (
+				3CC811C4275516A300455C74 /* Training.storyboard */,
 				3CC811CA2755170200455C74 /* TrainingListViewController.swift */,
 				3CC811CE275518D900455C74 /* TrainingListCell.swift */,
 				3CC811CF275518D900455C74 /* TrainingListCell.xib */,
@@ -319,12 +330,24 @@
 		3CC36AEF275678E200692CBA /* Curriculum */ = {
 			isa = PBXGroup;
 			children = (
+				3CC811C8275516EF00455C74 /* Curriculum.storyboard */,
 				3CC36AEA275664E800692CBA /* CurriculumViewController.swift */,
 				3CC36AEC275675EF00692CBA /* CurriculumGroupDetailViewController.swift */,
 				3CC36AF0275678FD00692CBA /* CurriculumCell.swift */,
 				3CC36AF1275678FD00692CBA /* CurriculumCell.xib */,
 			);
 			path = Curriculum;
+			sourceTree = "<group>";
+		};
+		3CF1FA4B2757AA550012E9A1 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				3CC811C6275516DA00455C74 /* Task.storyboard */,
+				3CF1FA4C2757AAC30012E9A1 /* TasksViewController.swift */,
+				3CF1FA4E2757AB550012E9A1 /* TaskCell.swift */,
+				3CF1FA4F2757AB550012E9A1 /* TaskCell.xib */,
+			);
+			path = Tasks;
 			sourceTree = "<group>";
 		};
 		C909490BD8157D79EEAF281E /* Pods */ = {
@@ -405,6 +428,7 @@
 				3C0194F4272AF85C00E5F2E6 /* TopMenuCollectionViewCell.xib in Resources */,
 				3CC36AF3275678FD00692CBA /* CurriculumCell.xib in Resources */,
 				3C797A2426E71FEA0046E663 /* FeedsCell.xib in Resources */,
+				3CF1FA512757AB550012E9A1 /* TaskCell.xib in Resources */,
 				3C2CB59726E51B8F0078F95A /* Assets.xcassets in Resources */,
 				07C688042721242A00BD9735 /* GoogleService-Info.plist in Resources */,
 				3C85185A26EF167B00BDA3D9 /* UnivesityBannerCell.xib in Resources */,
@@ -465,10 +489,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C85184F26EC25CA00BDA3D9 /* VideoTableViewCell.swift in Sources */,
+				3CF1FA4D2757AAC30012E9A1 /* TasksViewController.swift in Sources */,
 				3C85185626EC384600BDA3D9 /* GlobalCache.swift in Sources */,
 				3C2CB5A426E522650078F95A /* DashboardViewController.swift in Sources */,
 				3C97FB162742AADC0025BF39 /* ARViewController.swift in Sources */,
 				3CAF9234273D6DB3006065C5 /* Enumerations.swift in Sources */,
+				3CF1FA532757ADAD0012E9A1 /* TaskModel.swift in Sources */,
 				3C797A1D26E71ED20046E663 /* UniversityCell.swift in Sources */,
 				3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */,
 				3C0194F8272AFDAB00E5F2E6 /* Constants.swift in Sources */,
@@ -491,6 +517,7 @@
 				3C797A1926E715BF0046E663 /* CustomView.swift in Sources */,
 				3C85185926EF167B00BDA3D9 /* UnivesityBannerCell.swift in Sources */,
 				3C85186126F0A36400BDA3D9 /* PostTableViewCell.swift in Sources */,
+				3CF1FA502757AB550012E9A1 /* TaskCell.swift in Sources */,
 				3CBD7166270DD28800D978A9 /* APIHelper.swift in Sources */,
 				3C2CB5A226E5225A0078F95A /* LoginViewController.swift in Sources */,
 				3CC36AF5275680CD00692CBA /* AfterschoolScheduleModel.swift in Sources */,
@@ -500,6 +527,7 @@
 				3C2CB5A626E522780078F95A /* UniversityViewController.swift in Sources */,
 				3CA2A03426EA9E520018A9CB /* CacheManager.swift in Sources */,
 				3C85185226EC2F6400BDA3D9 /* SharedFunc.swift in Sources */,
+				3CF1FA552757B1B20012E9A1 /* TaskAPI.swift in Sources */,
 				3C797A2A26E721790046E663 /* UniversityCollectionViewCell.swift in Sources */,
 				3C85186426F0A7AD00BDA3D9 /* Post.swift in Sources */,
 				3C0194F6272AFAED00E5F2E6 /* TopMenuItem.swift in Sources */,
@@ -659,7 +687,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -681,7 +709,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 10;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

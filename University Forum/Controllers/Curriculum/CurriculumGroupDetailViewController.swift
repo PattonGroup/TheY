@@ -60,7 +60,7 @@ extension CurriculumGroupDetailViewController: UITableViewDelegate, UITableViewD
         UIView.animate(withDuration: 0) {
             cell.layoutIfNeeded()
         } completion: { _ in
-            GradientColorClass.setGradiantColor(view: cell.containerView, topColor: .systemBlue, bottomColor: UIColor.systemPink.withAlphaComponent(0.7), cornerRadius: cell.frame.height / 2, gradiantDirection: .topToBottom)
+            GradientColorClass.setGradiantColor(view: cell.containerView, topColor: .systemBlue, bottomColor: UIColor.systemPink.withAlphaComponent(0.8), cornerRadius: cell.frame.height / 2, gradiantDirection: .topToBottom)
 
         }
 
