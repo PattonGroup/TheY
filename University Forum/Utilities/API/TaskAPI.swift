@@ -29,5 +29,18 @@ class TaskAPI {
             }
         }
     }
+    
+    func updateTaskStatus(status: String, documentID: String) {
+        let db = Firestore.firestore()
+        db.collection(collectionName).document(documentID).setData([
+            "status": status
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+    }
 }
 

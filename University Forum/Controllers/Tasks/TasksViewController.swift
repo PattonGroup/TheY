@@ -42,7 +42,8 @@ class TasksViewController: UIViewController {
     }
     */
     func updateTaskStatus(task: TaskModel, isCompleted: Bool) {
-        //add codes for api to update th etask status
+        let status = isCompleted ? "completed" : "pending"
+        TaskAPI.shared.updateTaskStatus(status: status, documentID: task.documentID)
     }
     
     func setImage(imageView: UIImageView, index: Int, isUpdateStatus: Bool = false) {

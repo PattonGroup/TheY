@@ -65,24 +65,23 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
 //        // if the anchor is not of type ARImageAnchor (which means image is not detected), just return
-//        guard let imageAnchor = anchor as? ARImageAnchor, let fileUrlString = Bundle.main.path(forResource: "black", ofType: "mp4") else {return}
-//        let videoItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
+        guard let imageAnchor = anchor as? ARImageAnchor, let fileUrlString = Bundle.main.path(forResource: "ymca-video", ofType: "mp4") else {return}
+        let playerItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
         
-        guard let imageAnchor = anchor as? ARImageAnchor else {return}
-        let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
-        var asset: AVAsset!
-        var playerItem: AVPlayerItem!
-        let requiredAssetKeys = [
-            "playable",
-            "hasProtectedContent"
-        ]
-
-        asset = AVAsset(url: url)
-        playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
+//        guard let imageAnchor = anchor as? ARImageAnchor else {return}
+//        let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
+//        var asset: AVAsset!
+//        var playerItem: AVPlayerItem!
+//        let requiredAssetKeys = [
+//            "playable",
+//            "hasProtectedContent"
+//        ]
+//        asset = AVAsset(url: url)
+//        playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         let player = AVPlayer(playerItem: playerItem)
         //initialize video node with avplayer
         let videoNode = SKVideoNode(avPlayer: player)
-        
+        player.volume = 1
         player.play()
         // add observer when our player.currentItem finishes player, then start playing from the beginning
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (notification) in
