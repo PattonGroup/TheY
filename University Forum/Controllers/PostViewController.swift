@@ -51,6 +51,10 @@ class PostViewController: UIViewController {
     
     @IBAction func didTapPost(_ sender: Any) {
         self.view.endEditing(true)
+        
+        if txtTextView.text.isEmpty && image == nil {
+            return
+        }
     
         let post: [String: Any] = [
             "postAt": getFormattedDate(),

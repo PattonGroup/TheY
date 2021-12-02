@@ -67,12 +67,6 @@ class UniversityViewController: UIViewController {
         let vc = self.storyboard!.instantiateViewController(identifier: "PostViewController") as! PostViewController
         vc.universityID = SharedFunc.getString(university?.id)
         vc.universityName = SharedFunc.getString(university?.name)
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = CATransitionType.moveIn
-        transition.subtype = CATransitionSubtype.fromTop
-        self.navigationController?.view.layer.add(transition, forKey: nil)
         self.navigationController?.pushViewController(vc, animated: false)
     }
     
