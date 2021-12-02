@@ -92,6 +92,7 @@
             <connections>
                 <outlet property="imgPhoto" destination="HHi-hY-BQT" id="sqf-31-Jdf"/>
                 <outlet property="imgUniversityIcon" destination="uo7-Db-aeT" id="ChY-Sv-2r3"/>
+                <outlet property="lblPostedBy" destination="hZk-Vg-nhw" id="c0k-eX-H0W"/>
                 <outlet property="lblText" destination="K5h-Io-uCf" id="v4i-e7-rFU"/>
                 <outlet property="lblUniversityName" destination="L3L-tJ-dKn" id="9eC-Cw-5vF"/>
                 <outlet property="playerView" destination="I6I-sY-lZy" id="UMA-sB-0Df"/>

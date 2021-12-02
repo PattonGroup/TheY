@@ -31,7 +31,7 @@ class PostsAPI {
     func getAllPosts(completion: @escaping (_ data: [PostResponseModel]) -> ()) {
         let db = Firestore.firestore()
         db.collection(collectionName)
-            .whereField("status", isEqualTo: "Approved")
+//            .whereField("status", isEqualTo: "Approved")
             .getDocuments() { (querySnapshot, err) in
         
             if let _ = err {
@@ -51,7 +51,7 @@ class PostsAPI {
         let db = Firestore.firestore()
         db.collection(collectionName)
             .whereField("universityID", isEqualTo: id)
-            .whereField("status", isEqualTo: "Approved")
+//            .whereField("status", isEqualTo: "Approved")
             .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")

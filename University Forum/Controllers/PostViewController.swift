@@ -53,7 +53,7 @@ class PostViewController: UIViewController {
         self.view.endEditing(true)
     
         let post: [String: Any] = [
-            "postAt": Date(),
+            "postAt": getFormattedDate(),
             "userID": SharedFunc.getUserID(),
             "universityName": SharedFunc.getString(universityName),
             "universityID": SharedFunc.getString(universityID),
@@ -76,6 +76,12 @@ class PostViewController: UIViewController {
         }
     }
     
+    
+    func getFormattedDate() -> String {
+        let df = DateFormatter()
+        df.dateFormat = "MMM dd yyyy HH:mm:ss"
+        return df.string(from: Date())
+    }
     
     func showSourceTypeSelection(){
         let title = "Source Type"

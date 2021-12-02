@@ -38,7 +38,8 @@ class TopMenuCollectionViewCell: UICollectionViewCell {
     
     private func setupMenu(){
         guard let item = menuItem else { return }
-        imgIcon.image = UIImage(named: item.menuIconName)
+        imgIcon.image = UIImage(named: item.menuIconName)?.withRenderingMode(.alwaysTemplate)
+        imgIcon.tintColor = UIColor(displayP3Red: 103/255, green: 0/255, blue: 3/255, alpha: 1.0)
         lblTitle.text = item.menuTitle
         
         

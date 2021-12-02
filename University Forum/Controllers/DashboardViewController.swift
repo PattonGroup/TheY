@@ -228,6 +228,13 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: university.bannerURLPath)
             cell.lblUniversityName.text = university.name
+            
+            if let pastDate = dataSource[indexPath.row].postAt.toDate() {
+                cell.lblPostedBy.text = "Posted " + pastDate.timeAgoDisplay()
+            }else{
+                cell.lblPostedBy.text = ""
+            }
+
             cell.lblText.text = SharedFunc.getString(dataSource[indexPath.row].postDescription)
             cell.imgPhoto.contentMode = .scaleAspectFill
             cell.imgPhoto.layer.cornerRadius = 5
@@ -261,10 +268,10 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
                 asset = AVAsset(url: url)
                 playerItem = AVPlayerItem(asset: asset,
                                           automaticallyLoadedAssetKeys: requiredAssetKeys)
-                playerItem.addObserver(self,
-                                       forKeyPath: #keyPath(AVPlayerItem.status),
-                                       options: [.old, .new],
-                                       context: &playerItemContext)
+//                playerItem.addObserver(self,
+//                                       forKeyPath: #keyPath(AVPlayerItem.status),
+//                                       options: [.old, .new],
+//                                       context: &playerItemContext)
                 
                 
                 //            cell.avPlayer = AVPlayer(url: url)

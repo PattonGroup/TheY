@@ -14,6 +14,7 @@ class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
     @IBOutlet weak var lblUniversityName: UILabel!
     @IBOutlet weak var lblText: UILabel!
     @IBOutlet weak var imgPhoto: UIImageView!
+    @IBOutlet weak var lblPostedBy: UILabel!
     @IBOutlet weak var playerView: PlayerView!
     
     var playerController: ASVideoPlayerController?

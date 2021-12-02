@@ -134,7 +134,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: UnivesityBannerCell.identifier, for: indexPath) as! UnivesityBannerCell
             SharedFunc.loadImage(imageView: cell.imgBanner, urlString: SharedFunc.getString(university?.bannerURLPath))
-            cell.imgBanner.contentMode = SharedFunc.getString(university?.id) == "1" ? .scaleAspectFit : .scaleAspectFill
+            cell.imgBanner.contentMode = .scaleAspectFill
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
             cell.lblMembers.text = SharedFunc.getMembersCount(SharedFunc.getString(university?.memberCount))
             return cell
@@ -151,6 +151,13 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectionStyle = .none
             SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: SharedFunc.getString(university?.bannerURLPath))
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
+            
+            if let pastDate = feedsDatasource[indexPath.row].postAt.toDate() {
+                cell.lblPostedBy.text = "Posted " + pastDate.timeAgoDisplay()
+            }else{
+                cell.lblPostedBy.text = ""
+            }
+            
             cell.lblText.text = SharedFunc.getString(feedsDatasource[indexPath.row].postDescription)
             cell.imgPhoto.contentMode = .scaleAspectFill
             cell.imgPhoto.layer.cornerRadius = 5
