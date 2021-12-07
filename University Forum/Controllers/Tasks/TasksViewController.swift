@@ -43,7 +43,7 @@ class TasksViewController: UIViewController {
     */
     func updateTaskStatus(task: TaskModel, isCompleted: Bool) {
         let status = isCompleted ? "completed" : "pending"
-        TaskAPI.shared.updateTaskStatus(status: status, documentID: task.documentID)
+        TaskAPI.shared.updateTaskStatus(status: status, task: task)
     }
     
     func setImage(imageView: UIImageView, index: Int, isUpdateStatus: Bool = false) {

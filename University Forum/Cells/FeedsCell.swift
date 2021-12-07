@@ -8,6 +8,10 @@
 import UIKit
 import AVKit
 
+protocol FeedsCellDelegate {
+    func didTapMore(sender: UIButton, docID: String, index: Int)
+}
+
 class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
     
     @IBOutlet weak var imgUniversityIcon: CustomImageView!
@@ -16,10 +20,14 @@ class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
     @IBOutlet weak var imgPhoto: UIImageView!
     @IBOutlet weak var lblPostedBy: UILabel!
     @IBOutlet weak var playerView: PlayerView!
+    @IBOutlet weak var btnMore: UIButton!
+    @IBOutlet weak var imgMore: UIImageView!
     
     var playerController: ASVideoPlayerController?
+    var delegate: FeedsCellDelegate?
     var avPlayer: AVPlayer?
     var videoLayer: AVPlayerLayer = AVPlayerLayer()
+    var docID: String = ""
     var videoURL: String? {
         didSet {
             if let videoURL = videoURL {
@@ -36,14 +44,8 @@ class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-//        imgPhoto.layer.cornerRadius = 5
-//        imgPhoto.backgroundColor = UIColor.gray.withAlphaComponent(0.7)
-////        imgPhoto.clipsToBounds = true
-//        imgPhoto.layer.borderColor = UIColor.gray.withAlphaComponent(0.3).cgColor
-//        imgPhoto.layer.borderWidth = 0.5
-//        videoLayer.backgroundColor = UIColor.clear.cgColor
-//        videoLayer.videoGravity = AVLayerVideoGravity.resize
-//        imgPhoto.layer.addSublayer(videoLayer)
+        imgMore.image = imgMore.image?.withRenderingMode(.alwaysTemplate)
+        imgMore.tintColor = .darkGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -76,4 +78,7 @@ class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
         return visibleVideoFrame.size.height
     }
     
+    @IBAction func didTapMore(_ sender: UIButton) {
+        delegate?.didTapMore(sender: sender, docID: docID, index: sender.tag)
+    }
 }

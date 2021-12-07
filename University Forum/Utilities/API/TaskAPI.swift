@@ -30,10 +30,11 @@ class TaskAPI {
         }
     }
     
-    func updateTaskStatus(status: String, documentID: String) {
+    func updateTaskStatus(status: String, task: TaskModel) {
         let db = Firestore.firestore()
-        db.collection(collectionName).document(documentID).setData([
-            "status": status
+        db.collection(collectionName).document(task.documentID).setData([
+            "status": status,
+            "title": task.title
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")

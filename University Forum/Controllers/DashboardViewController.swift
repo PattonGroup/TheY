@@ -9,6 +9,7 @@ import AVKit
 import UIKit
 import Kingfisher
 import MBProgressHUD
+import FTPopOverMenu_Swift
 
 class DashboardViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
@@ -226,6 +227,9 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedsCell.identifier, for: indexPath) as! FeedsCell
             cell.separatorInset.left = 0
             cell.selectionStyle = .none
+            cell.delegate = self
+            cell.docID = dataSource[indexPath.row].documentID
+            cell.btnMore.tag = indexPath.row
             SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: university.bannerURLPath)
             cell.lblUniversityName.text = university.name
             
@@ -389,3 +393,35 @@ extension DashboardViewController: GlobalCacheDelegate {
         self.performSegue(withIdentifier: "showUniversity", sender: nil)
     }
 }
+
+extension DashboardViewController: FeedsCellDelegate, UIPopoverPresentationControllerDelegate {
+    func didTapMore(sender: UIButton, docID: String, index: Int) {
+        
+        
+        FTPopOverMenu.showForSender(sender: sender,
+                                    with: ["Delete"],
+                                    menuImageArray: ["delete"],
+                                    done: { (selectedIndex) -> () in
+            
+            print(selectedIndex)
+            
+            PostsAPI.shared.deletePost(documentID: docID) { success  in
+                if success {
+                    self.dataSource.remove(at: index)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+    }
+    
+    
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Force popover style
+        return UIModalPresentationStyle.none
+    }
+}
+

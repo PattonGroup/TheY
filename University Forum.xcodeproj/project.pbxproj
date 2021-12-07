@@ -71,6 +71,9 @@
 		3CC811CB2755170200455C74 /* TrainingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CA2755170200455C74 /* TrainingListViewController.swift */; };
 		3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC811CE275518D900455C74 /* TrainingListCell.swift */; };
 		3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CC811CF275518D900455C74 /* TrainingListCell.xib */; };
+		3CCA9A97275E523F007A2DA9 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA9A96275E523F007A2DA9 /* PopoverViewController.swift */; };
+		3CCA9A9B275E543C007A2DA9 /* PopoverCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CCA9A99275E543B007A2DA9 /* PopoverCell.swift */; };
+		3CCA9A9C275E543C007A2DA9 /* PopoverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CCA9A9A275E543B007A2DA9 /* PopoverCell.xib */; };
 		3CF1FA4D2757AAC30012E9A1 /* TasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4C2757AAC30012E9A1 /* TasksViewController.swift */; };
 		3CF1FA502757AB550012E9A1 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4E2757AB550012E9A1 /* TaskCell.swift */; };
 		3CF1FA512757AB550012E9A1 /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CF1FA4F2757AB550012E9A1 /* TaskCell.xib */; };
@@ -146,6 +149,9 @@
 		3CC811CA2755170200455C74 /* TrainingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListViewController.swift; sourceTree = "<group>"; };
 		3CC811CE275518D900455C74 /* TrainingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingListCell.swift; sourceTree = "<group>"; };
 		3CC811CF275518D900455C74 /* TrainingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrainingListCell.xib; sourceTree = "<group>"; };
+		3CCA9A96275E523F007A2DA9 /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		3CCA9A99275E543B007A2DA9 /* PopoverCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverCell.swift; sourceTree = "<group>"; };
+		3CCA9A9A275E543B007A2DA9 /* PopoverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverCell.xib; sourceTree = "<group>"; };
 		3CF1FA4C2757AAC30012E9A1 /* TasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksViewController.swift; sourceTree = "<group>"; };
 		3CF1FA4E2757AB550012E9A1 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		3CF1FA4F2757AB550012E9A1 /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
@@ -263,6 +269,7 @@
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
+				3CCA9A98275E5425007A2DA9 /* Popover */,
 				3CC36AEE275678CE00692CBA /* Training */,
 				3CC36AEF275678E200692CBA /* Curriculum */,
 				3CF1FA4B2757AA550012E9A1 /* Tasks */,
@@ -340,6 +347,16 @@
 				3CC36AF1275678FD00692CBA /* CurriculumCell.xib */,
 			);
 			path = Curriculum;
+			sourceTree = "<group>";
+		};
+		3CCA9A98275E5425007A2DA9 /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				3CCA9A96275E523F007A2DA9 /* PopoverViewController.swift */,
+				3CCA9A99275E543B007A2DA9 /* PopoverCell.swift */,
+				3CCA9A9A275E543B007A2DA9 /* PopoverCell.xib */,
+			);
+			path = Popover;
 			sourceTree = "<group>";
 		};
 		3CF1FA4B2757AA550012E9A1 /* Tasks */ = {
@@ -432,6 +449,7 @@
 				3C85185026EC25CA00BDA3D9 /* VideoTableViewCell.xib in Resources */,
 				3CC811C5275516A300455C74 /* Training.storyboard in Resources */,
 				3C2CB59A26E51B8F0078F95A /* LaunchScreen.storyboard in Resources */,
+				3CCA9A9C275E543C007A2DA9 /* PopoverCell.xib in Resources */,
 				3CC811C7275516DA00455C74 /* Task.storyboard in Resources */,
 				3C797A1E26E71ED20046E663 /* UniversityCell.xib in Resources */,
 				3C85186226F0A36400BDA3D9 /* PostTableViewCell.xib in Resources */,
@@ -511,6 +529,7 @@
 				3C2CB58B26E51B8D0078F95A /* AppDelegate.swift in Sources */,
 				3C0194F8272AFDAB00E5F2E6 /* Constants.swift in Sources */,
 				3C87D266273C23540018DABA /* ARImageDetection.swift in Sources */,
+				3CCA9A9B275E543C007A2DA9 /* PopoverCell.swift in Sources */,
 				3CC36AEB275664E800692CBA /* CurriculumViewController.swift in Sources */,
 				3C0194F3272AF85C00E5F2E6 /* TopMenuCollectionViewCell.swift in Sources */,
 				3C3B0ABB26E8ABF800CD017E /* PlayerView.swift in Sources */,
@@ -543,6 +562,7 @@
 				3C797A2A26E721790046E663 /* UniversityCollectionViewCell.swift in Sources */,
 				3C85186426F0A7AD00BDA3D9 /* Post.swift in Sources */,
 				3C0194F6272AFAED00E5F2E6 /* TopMenuItem.swift in Sources */,
+				3CCA9A97275E523F007A2DA9 /* PopoverViewController.swift in Sources */,
 				3CBBE0FB2723180600F5178C /* SignupViewController.swift in Sources */,
 				3CC36AF2275678FD00692CBA /* CurriculumCell.swift in Sources */,
 				3C2CB59526E51B8D0078F95A /* University_Forum.xcdatamodeld in Sources */,
@@ -699,7 +719,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -721,7 +741,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "University Forum/University Forum.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = 3437VLSCZW;
 				INFOPLIST_FILE = "University Forum/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

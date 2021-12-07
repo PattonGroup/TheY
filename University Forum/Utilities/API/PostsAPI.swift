@@ -192,5 +192,17 @@ class PostsAPI {
         })
     }
     
+    
+    func deletePost(documentID: String, completion : @escaping (Bool) -> Void) {
+        Firestore.firestore().collection(collectionName).document(documentID).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+                completion(false)
+            } else {
+                print("Document successfully removed!")
+                completion(true)
+            }
+        }
+    }
 }
 

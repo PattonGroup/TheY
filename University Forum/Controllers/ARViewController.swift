@@ -8,11 +8,12 @@
 import UIKit
 import SceneKit
 import ARKit
-import YouTubePlayer
 
 class ARViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var containerView: UIView!
     var sceneView = ARSCNView()
+    var player: AVPlayer!
+    var videoScene: SKScene!
 
     
     override func viewDidLoad() {
@@ -42,6 +43,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @objc func didTapClose(){
+        player?.pause()
+        player = nil
         self.navigationController?.popViewController(animated: false)
     }
     
@@ -62,10 +65,36 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        print(#function)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        print(#function)
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didRenderScene scene: SCNScene, atTime time: TimeInterval) {
+        print(#function)
+        print("ffffff: \(scene)")
+        
+        if scene != videoScene {
+            videoScene?.removeFromParent()
+        }
+        
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, willUpdate node: SCNNode, for anchor: ARAnchor) {
+        print(#function)
+    }
+    
+    
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
 //        // if the anchor is not of type ARImageAnchor (which means image is not detected), just return
-        guard let imageAnchor = anchor as? ARImageAnchor, let fileUrlString = Bundle.main.path(forResource: "ymca-video", ofType: "mp4") else {return}
+        guard let imageAnchor = anchor as? ARImageAnchor, let fileUrlString = Bundle.main.path(forResource: "ymca-video", ofType: "mp4") else {
+            print("gg")
+            return
+        }
         let playerItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
         
 //        guard let imageAnchor = anchor as? ARImageAnchor else {return}
@@ -78,20 +107,19 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
 //        ]
 //        asset = AVAsset(url: url)
 //        playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
-        let player = AVPlayer(playerItem: playerItem)
+        player = AVPlayer(playerItem: playerItem)
         //initialize video node with avplayer
         let videoNode = SKVideoNode(avPlayer: player)
         player.volume = 1
         player.play()
         // add observer when our player.currentItem finishes player, then start playing from the beginning
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { (notification) in
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { [self] (notification) in
             player.seek(to: CMTime.zero)
             player.play()
-            print("Looping Video")
         }
         
         // set the size (just a rough one will do)
-        let videoScene = SKScene(size: CGSize(width: 480, height: 360))
+        videoScene = SKScene(size: CGSize(width: 800, height: 500))
         // center our video to the size of our video scene
         videoNode.position = CGPoint(x: videoScene.size.width / 2, y: videoScene.size.height / 2)
         // invert our video so it does not look upside down
@@ -106,8 +134,11 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         let planeNode = SCNNode(geometry: plane)
         // since the created node will be vertical, rotate it along the x axis to have it be horizontal or parallel to our detected image
         planeNode.eulerAngles.x = -Float.pi / 2
+        planeNode.name = "video"
         // finally add the plane node (which contains the video node) to the added node
         node.addChildNode(planeNode)
+        
+        print("scene: \(videoScene)")
     }
     
     /*

@@ -385,6 +385,7 @@ PODS:
   - FirebaseStorage (8.9.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
+  - FTPopOverMenu_Swift (0.4.3)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -446,19 +447,18 @@ PODS:
   - RxSwift (6.2.0)
   - SnapKit (5.0.1)
   - TagListView (1.4.1)
-  - YouTubePlayer (0.7.2)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
+  - FTPopOverMenu_Swift
   - IQKeyboardManagerSwift
   - Kingfisher
   - MBProgressHUD (~> 1.2.0)
   - NotificationBannerSwift (~> 3.0.0)
   - RxSwift
   - TagListView (~> 1.0)
-  - YouTubePlayer
 
 SPEC REPOS:
   trunk:
@@ -470,6 +470,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseStorage
+    - FTPopOverMenu_Swift
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -486,7 +487,6 @@ SPEC REPOS:
     - RxSwift
     - SnapKit
     - TagListView
-    - YouTubePlayer
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -497,6 +497,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 5daa63f1c1409d981a2d5007daa100b36eac6a34
   FirebaseFirestore: 15ae9648476436efed698a909e44c4737498f9b4
   FirebaseStorage: 452c98c31ccb40b819764bf3039426c4388d9939
+  FTPopOverMenu_Swift: 85ac1c04b04f6b4ac394414602c6a71ef3f66cc2
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   "gRPC-C++": 13d8ccef97d5c3c441b7e3c529ef28ebee86fad2
@@ -513,8 +514,7 @@ SPEC CHECKSUMS:
   RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TagListView: a1c236d17960a0cf64156725a76ce6d73ebce2be
-  YouTubePlayer: 2b5f2830d8f9b2cde942083211291e382c9e6bd5
 
-PODFILE CHECKSUM: d2fa3f41e3fe7326efe1204f780d531a8aa5b3f1
+PODFILE CHECKSUM: 24eeb6c359b416ba70aa8cff23acc64302ce78d0
 
 COCOAPODS: 1.10.1

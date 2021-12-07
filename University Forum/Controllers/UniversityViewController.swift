@@ -9,6 +9,7 @@ import UIKit
 import AVKit
 import AVFoundation
 import MBProgressHUD
+import FTPopOverMenu_Swift
 
 class UniversityViewController: UIViewController {
     @IBOutlet weak var createPostImageView: UIImageView!
@@ -143,6 +144,9 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedsCell.identifier, for: indexPath) as! FeedsCell
             cell.separatorInset.left = 0
             cell.selectionStyle = .none
+            cell.docID = feedsDatasource[indexPath.row].documentID
+            cell.btnMore.tag = indexPath.row
+            cell.delegate = self
             SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: SharedFunc.getString(university?.bannerURLPath))
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
             
@@ -224,5 +228,37 @@ extension UniversityViewController: PostTableViewCellDelegate {
     
     func initiatePollPost() {
         print(#function)
+    }
+}
+
+
+extension UniversityViewController: FeedsCellDelegate, UIPopoverPresentationControllerDelegate {
+    func didTapMore(sender: UIButton, docID: String, index: Int) {
+        
+        
+        FTPopOverMenu.showForSender(sender: sender,
+                                    with: ["Delete"],
+                                    menuImageArray: ["delete"],
+                                    done: { (selectedIndex) -> () in
+            
+            print(selectedIndex)
+            
+            PostsAPI.shared.deletePost(documentID: docID) { success  in
+                if success {
+                    self.feedsDatasource.remove(at: index)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        })
+    }
+    
+    
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Force popover style
+        return UIModalPresentationStyle.none
     }
 }

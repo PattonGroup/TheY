@@ -12,6 +12,7 @@ import NotificationBannerSwift
 import Kingfisher
 import Firebase
 import FirebaseAuth
+import FTPopOverMenu_Swift
 
 protocol SharedFuncDelegate {
     func didSelectTopItem(index: Int)

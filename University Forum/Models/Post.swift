@@ -36,7 +36,7 @@ class Feed: Encodable {
 
 //#Mark:- Users model
 struct PostResponseModel {
-
+    var documentID: String
     var photoURLPath: String
     var postAt: String
     var postDescription: String
@@ -47,6 +47,7 @@ struct PostResponseModel {
     var videoURLPath: String
 
    init(snapshot: QueryDocumentSnapshot) {
+        documentID = snapshot.documentID
         let snapshotValue = snapshot.data()
        photoURLPath = SharedFunc.getString(snapshotValue["photoURLPath"])
        postAt = SharedFunc.getString(snapshotValue["postAt"])
