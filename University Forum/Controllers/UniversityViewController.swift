@@ -23,9 +23,11 @@ class UniversityViewController: UIViewController {
         }
     }
     var university: UniversityResponseModel?
+    var announcementsDatasource: [AnnouncementModel] = []
     var feedsDatasource: [PostResponseModel] = []
     var cellCache: [UITableViewCell?] = []
     var playerItemContext: Int = 0
+    var isAnnouncements: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,7 +122,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             return 1
             
         default:
-            return feedsDatasource.count
+            return isAnnouncements ? announcementsDatasource.count : feedsDatasource.count
         }
     }
     
@@ -132,6 +134,7 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imgBanner.contentMode = .scaleAspectFill
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
             cell.lblMembers.text = SharedFunc.getMembersCount(SharedFunc.getString(university?.memberCount))
+            cell.delegate = self
             return cell
             
         default:
@@ -141,34 +144,53 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
             
+            var description: String = ""
+            var imageURL: String = ""
+            var videoURL: String = ""
+            var postedAt: String = ""
+            
+            if isAnnouncements {
+                description = announcementsDatasource[indexPath.row].description
+                imageURL = announcementsDatasource[indexPath.row].imageURL
+                postedAt = announcementsDatasource[indexPath.row].postedAt
+            }else{
+                description = feedsDatasource[indexPath.row].postDescription
+                imageURL = feedsDatasource[indexPath.row].photoURLPath
+                postedAt = feedsDatasource[indexPath.row].postAt
+                videoURL = feedsDatasource[indexPath.row].videoURLPath
+            }
+            
+            
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: FeedsCell.identifier, for: indexPath) as! FeedsCell
             cell.separatorInset.left = 0
             cell.selectionStyle = .none
             cell.docID = feedsDatasource[indexPath.row].documentID
             cell.btnMore.tag = indexPath.row
+            cell.btnMore.isHidden = isAnnouncements
+            cell.imgMore.isHidden = isAnnouncements
             cell.delegate = self
             SharedFunc.loadImage(imageView: cell.imgUniversityIcon, urlString: SharedFunc.getString(university?.bannerURLPath))
             cell.lblUniversityName.text = SharedFunc.getString(university?.name)
             
-            if let pastDate = feedsDatasource[indexPath.row].postAt.toDate() {
+            if let pastDate = postedAt.toDate() {
                 cell.lblPostedBy.text = "Posted " + pastDate.timeAgoDisplay()
             }else{
                 cell.lblPostedBy.text = ""
             }
             
-            cell.lblText.text = SharedFunc.getString(feedsDatasource[indexPath.row].postDescription)
+            cell.lblText.text = SharedFunc.getString(description)
             cell.imgPhoto.contentMode = .scaleAspectFill
             cell.imgPhoto.layer.cornerRadius = 5
             cell.imgPhoto.layer.masksToBounds = true
             
-            if !feedsDatasource[indexPath.row].photoURLPath.isEmpty {
-                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: feedsDatasource[indexPath.row].photoURLPath)
+            if !imageURL.isEmpty {
+                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: imageURL)
                 cell.imgPhoto.isHidden = false
             }else{
                 cell.imgPhoto.isHidden = true
             }
             
-            let videoURL: String = SharedFunc.getString(feedsDatasource[indexPath.row].videoURLPath)
             if videoURL.isEmpty {
                 cell.playerView.isHidden = true
             }else{
@@ -183,10 +205,6 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
                 asset = AVAsset(url: url)
                 playerItem = AVPlayerItem(asset: asset,
                                           automaticallyLoadedAssetKeys: requiredAssetKeys)
-//                playerItem.addObserver(self,
-//                                       forKeyPath: #keyPath(AVPlayerItem.status),
-//                                       options: [.old, .new],
-//                                       context: &playerItemContext)
                 
                 cell.avPlayer = AVPlayer(playerItem: playerItem)
                 cell.avPlayer?.addObserver(self, forKeyPath: "rate", options: [], context: nil)
@@ -260,5 +278,34 @@ extension UniversityViewController: FeedsCellDelegate, UIPopoverPresentationCont
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         // Force popover style
         return UIModalPresentationStyle.none
+    }
+}
+
+
+extension UniversityViewController: UnivesityBannerCellDelegate {
+    func didTapTopButtons(index: Int) {
+        if index == 0 {
+            isAnnouncements = false
+            tableView.reloadData()
+        }else{
+            isAnnouncements = true
+            
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            AnnouncementAPI.shared.getAllAnnouncements { data in
+                self.announcementsDatasource = data
+                
+                DispatchQueue.main.async {
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.tableView.reloadData()
+                }
+                
+            
+            }
+        }
+        
+    }
+    
+    func didTapInvite() {
+        
     }
 }

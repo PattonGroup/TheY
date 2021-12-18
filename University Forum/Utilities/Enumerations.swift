@@ -15,6 +15,7 @@ enum Collection {
     static let Trainings: String = "training"
     static let AfterschoolSchedule: String = "groups"
     static let Task: String = "tasks"
+    static let Announcement: String = "announcements"
 }
 
 enum SharedMessages {

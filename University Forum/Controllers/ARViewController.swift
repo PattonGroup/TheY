@@ -36,6 +36,8 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        self.player?.pause()
+        self.player = nil
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -96,17 +98,6 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
             return
         }
         let playerItem = AVPlayerItem(url: URL(fileURLWithPath: fileUrlString))
-        
-//        guard let imageAnchor = anchor as? ARImageAnchor else {return}
-//        let url = URL(string: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")!
-//        var asset: AVAsset!
-//        var playerItem: AVPlayerItem!
-//        let requiredAssetKeys = [
-//            "playable",
-//            "hasProtectedContent"
-//        ]
-//        asset = AVAsset(url: url)
-//        playerItem = AVPlayerItem(asset: asset, automaticallyLoadedAssetKeys: requiredAssetKeys)
         player = AVPlayer(playerItem: playerItem)
         //initialize video node with avplayer
         let videoNode = SKVideoNode(avPlayer: player)
@@ -115,7 +106,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate {
         // add observer when our player.currentItem finishes player, then start playing from the beginning
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: player.currentItem, queue: nil) { [self] (notification) in
             player.seek(to: CMTime.zero)
-            player.play()
+//            player.play()
         }
         
         // set the size (just a rough one will do)
