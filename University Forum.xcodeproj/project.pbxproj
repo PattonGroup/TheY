@@ -82,6 +82,8 @@
 		3CF1FA532757ADAD0012E9A1 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA522757ADAD0012E9A1 /* TaskModel.swift */; };
 		3CF1FA552757B1B20012E9A1 /* TaskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF1FA542757B1B20012E9A1 /* TaskAPI.swift */; };
 		3CF61B5D2758F86A00798BE4 /* ymca-video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3CF61B5C2758F86A00798BE4 /* ymca-video.mp4 */; };
+		3CF6918D27720A1C009F91EA /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CF6918C27720A1C009F91EA /* ForgotPassword.storyboard */; };
+		3CF6918F27722F7A009F91EA /* ForgotPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CF6918E27722F7A009F91EA /* ForgotPassword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +164,8 @@
 		3CF1FA522757ADAD0012E9A1 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		3CF1FA542757B1B20012E9A1 /* TaskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPI.swift; sourceTree = "<group>"; };
 		3CF61B5C2758F86A00798BE4 /* ymca-video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ymca-video.mp4"; sourceTree = "<group>"; };
+		3CF6918C27720A1C009F91EA /* ForgotPassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		3CF6918E27722F7A009F91EA /* ForgotPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassword.swift; sourceTree = "<group>"; };
 		7568495C32234CE8B800B99F /* Pods-University Forum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.debug.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.debug.xcconfig"; sourceTree = "<group>"; };
 		B20A0AD38F00A6E1B45A0925 /* Pods-University Forum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-University Forum.release.xcconfig"; path = "Target Support Files/Pods-University Forum/Pods-University Forum.release.xcconfig"; sourceTree = "<group>"; };
 		B50BCB4BA7A106C9A326CE8A /* Pods_University_Forum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_University_Forum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +222,7 @@
 				3C797A1A26E71EB30046E663 /* Cells */,
 				3C2CB59026E51B8D0078F95A /* Main.storyboard */,
 				3C2CB59826E51B8F0078F95A /* LaunchScreen.storyboard */,
+				3CF6918C27720A1C009F91EA /* ForgotPassword.storyboard */,
 				3C2CB59626E51B8F0078F95A /* Assets.xcassets */,
 				3CF61B5B2758F84B00798BE4 /* Resources */,
 				3C2CB59B26E51B8F0078F95A /* Info.plist */,
@@ -271,6 +276,7 @@
 				3C2CB5A126E5225A0078F95A /* LoginViewController.swift */,
 				3C97FB152742AADC0025BF39 /* ARViewController.swift */,
 				3CBBE0FA2723180600F5178C /* SignupViewController.swift */,
+				3CF6918E27722F7A009F91EA /* ForgotPassword.swift */,
 				3C2CB5A326E522650078F95A /* DashboardViewController.swift */,
 				3C2CB5A526E522780078F95A /* UniversityViewController.swift */,
 				3C85185326EC311B00BDA3D9 /* PostViewController.swift */,
@@ -471,6 +477,7 @@
 				3C77AA44272AF73500761EC3 /* TopMenuCell.xib in Resources */,
 				3CC811D1275518D900455C74 /* TrainingListCell.xib in Resources */,
 				3CC811C9275516EF00455C74 /* Curriculum.storyboard in Resources */,
+				3CF6918D27720A1C009F91EA /* ForgotPassword.storyboard in Resources */,
 				3C2CB59226E51B8D0078F95A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,6 +585,7 @@
 				3CC811D0275518D900455C74 /* TrainingListCell.swift in Sources */,
 				3C77AA43272AF73500761EC3 /* TopMenuCell.swift in Sources */,
 				3C797A2726E7206D0046E663 /* University.swift in Sources */,
+				3CF6918F27722F7A009F91EA /* ForgotPassword.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
