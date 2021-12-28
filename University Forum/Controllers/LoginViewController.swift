@@ -15,25 +15,31 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
-//    @IBOutlet weak var errorLoginTextfield: UILabel!
+    @IBOutlet weak var lblForgotPassword: UILabel!
+    //    @IBOutlet weak var errorLoginTextfield: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         SharedFunc.applyTextfieldFormatting(emailTextfield)
         SharedFunc.applyTextfieldFormatting(passwordTextfield)
-
         
-//        let user: [String: Any] = [
-//            "email": "ian@gmail.com",
-//            "firstname": "Ian",
-//            "lastname": "Test",
-//            "gender": "Male",
-//            "role": "Admin",
-//            "universitys_tied": ["1", "2", "3", "4", "5"],
-//            "updatedAt": Date()
-//        ]
-//        UsersAPI.shared.createUser(user: user)
-//        UsersAPI.shared.getAllUsers { data in }
+        lblForgotPassword.isUserInteractionEnabled = true
+        lblForgotPassword.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapForgotPassword)))
+        
+        
+        let attrib = NSMutableAttributedString(string: "Forgot Password")
+        attrib.addAttributes([.foregroundColor: UIColor.systemBlue, .underlineStyle: NSUnderlineStyle.single.rawValue, .underlineColor: UIColor.systemBlue], range: NSRange(location: 0, length: attrib.string.count))
+        lblForgotPassword.attributedText = attrib
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @objc func didTapForgotPassword(){
+        let sb = UIStoryboard(name: "ForgotPassword", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "ForgotPassword")
+        self.navigationController?.pushViewController(vc, animated: true)
     }
         
     @IBAction func loginPressed(_ sender: UIButton) {

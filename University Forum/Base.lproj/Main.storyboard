@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v6q-A1-wZe" userLabel="Container">
-                                <rect key="frame" x="20" y="254" width="374" height="285.5"/>
+                                <rect key="frame" x="20" y="254" width="374" height="290"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dxm-XV-b5k">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
@@ -45,7 +45,7 @@
                                                             <constraint firstAttribute="height" constant="55" id="YTU-QO-vF3"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="LhV-IF-Oha"/>
                                                         </connections>
@@ -103,13 +103,16 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.40000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="yyZ-8v-6gx">
-                                        <rect key="frame" x="218" y="165" width="136" height="20.5"/>
+                                        <rect key="frame" x="218" y="165" width="136" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="5aJ-gX-0yK"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScM-Fj-Hc6" customClass="CustomButton" customModule="HTXY" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="220.5" width="374" height="55"/>
+                                        <rect key="frame" x="0.0" y="225" width="374" height="55"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="esw-Ym-vAe"/>
@@ -134,7 +137,7 @@
                                     <constraint firstItem="Dxm-XV-b5k" firstAttribute="leading" secondItem="v6q-A1-wZe" secondAttribute="leading" id="hGg-FP-zYj"/>
                                     <constraint firstItem="Dxm-XV-b5k" firstAttribute="top" secondItem="v6q-A1-wZe" secondAttribute="top" id="jB4-aW-F2a"/>
                                     <constraint firstItem="yyZ-8v-6gx" firstAttribute="top" secondItem="Dxm-XV-b5k" secondAttribute="bottom" constant="10" id="nFo-8n-aGH"/>
-                                    <constraint firstItem="ScM-Fj-Hc6" firstAttribute="top" secondItem="yyZ-8v-6gx" secondAttribute="bottom" constant="35" id="pK7-ut-qxk"/>
+                                    <constraint firstItem="ScM-Fj-Hc6" firstAttribute="top" secondItem="yyZ-8v-6gx" secondAttribute="bottom" constant="25" id="pK7-ut-qxk"/>
                                     <constraint firstItem="ScM-Fj-Hc6" firstAttribute="leading" secondItem="v6q-A1-wZe" secondAttribute="leading" id="pQL-n1-Nes"/>
                                     <constraint firstAttribute="bottom" secondItem="ScM-Fj-Hc6" secondAttribute="bottom" constant="10" id="tBk-Kr-r8f"/>
                                     <constraint firstAttribute="height" priority="250" constant="400" id="wrn-yj-Bdv"/>
@@ -182,6 +185,7 @@
                     <navigationItem key="navigationItem" id="2yH-uz-Ijv"/>
                     <connections>
                         <outlet property="emailTextfield" destination="vkg-Li-zEv" id="Jif-yT-Lah"/>
+                        <outlet property="lblForgotPassword" destination="yyZ-8v-6gx" id="DxN-2y-2sW"/>
                         <outlet property="passwordTextfield" destination="Pcp-Ey-Y4l" id="5XC-SS-s7D"/>
                         <segue destination="GqB-1M-jNi" kind="show" identifier="LoginToView" id="ruR-KF-WBQ"/>
                     </connections>
@@ -520,7 +524,7 @@
                                                             <constraint firstAttribute="height" constant="55" id="AL3-Xc-sLb"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="9kI-ax-8GL" id="Mig-Cc-bWc"/>
                                                         </connections>
