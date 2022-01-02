@@ -10,6 +10,7 @@ import AVKit
 import AVFoundation
 import MBProgressHUD
 import FTPopOverMenu_Swift
+import Kingfisher
 
 class UniversityViewController: UIViewController {
     @IBOutlet weak var createPostImageView: UIImageView!
@@ -185,7 +186,37 @@ extension UniversityViewController: UITableViewDelegate, UITableViewDataSource {
             cell.imgPhoto.layer.masksToBounds = true
             
             if !imageURL.isEmpty {
-                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: imageURL)
+//                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: imageURL)
+                let url = URL(string: imageURL)
+                let processor = DownsamplingImageProcessor(size: cell.imgPhoto.bounds.size)
+                            |> RoundCornerImageProcessor(cornerRadius: 5)
+                cell.imgPhoto.kf.indicatorType = .activity
+                cell.imgPhoto.kf.setImage(
+                    with: url,
+                    placeholder: UIImage(named: "placeholderImage"),
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
+                {
+                    result in
+                    switch result {
+                    case .success(let value):
+                        
+                        let height = SharedFunc.getImageDesiredHeight(image: cell.imgPhoto.image, baseWidth: cell.imgPhoto.superview!.frame.width)
+                        cell.imgPhotoHeightConstraint.constant = height
+                        
+                        DispatchQueue.main.async {
+                            cell.imgPhoto.layoutIfNeeded()
+                        }
+                        print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                        
+                    case .failure(let error):
+                        print("Job failed: \(error.localizedDescription)")
+                    }
+                }
                 cell.imgPhoto.isHidden = false
             }else{
                 cell.imgPhoto.isHidden = true

@@ -22,6 +22,7 @@ class FeedsCell: UITableViewCell, ASAutoPlayVideoLayerContainer {
     @IBOutlet weak var playerView: PlayerView!
     @IBOutlet weak var btnMore: UIButton!
     @IBOutlet weak var imgMore: UIImageView!
+    @IBOutlet weak var imgPhotoHeightConstraint: NSLayoutConstraint!
     
     var playerController: ASVideoPlayerController?
     var delegate: FeedsCellDelegate?

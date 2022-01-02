@@ -246,7 +246,38 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
             cell.separatorInset.left = (indexPath.row == dataSource.count - 1) ? self.view.frame.width : 0
             
             if !dataSource[indexPath.row].photoURLPath.isEmpty {
-                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: dataSource[indexPath.row].photoURLPath)
+//                SharedFunc.loadImage(imageView: cell.imgPhoto, urlString: dataSource[indexPath.row].photoURLPath)
+                let url = URL(string: dataSource[indexPath.row].photoURLPath)
+                let processor = DownsamplingImageProcessor(size: cell.imgPhoto.bounds.size)
+                            |> RoundCornerImageProcessor(cornerRadius: 5)
+                cell.imgPhoto.kf.indicatorType = .activity
+                cell.imgPhoto.kf.setImage(
+                    with: url,
+                    placeholder: UIImage(named: "placeholderImage"),
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
+                {
+                    result in
+                    switch result {
+                    case .success(let value):
+                        
+                        let height = SharedFunc.getImageDesiredHeight(image: cell.imgPhoto.image, baseWidth: cell.imgPhoto.superview!.frame.width)
+                        cell.imgPhotoHeightConstraint.constant = height
+                        
+                        DispatchQueue.main.async {
+                            cell.imgPhoto.layoutIfNeeded()
+                        }
+                        print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                        
+                    case .failure(let error):
+                        print("Job failed: \(error.localizedDescription)")
+                    }
+                }
+                
                 cell.imgPhoto.isHidden = false
             }else{
                 cell.imgPhoto.isHidden = true

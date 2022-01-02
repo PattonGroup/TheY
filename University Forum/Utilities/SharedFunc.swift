@@ -172,6 +172,16 @@ class SharedFunc {
         }
     }
     
+    static func getImageDesiredHeight(image: UIImage?, baseWidth: CGFloat) -> CGFloat {
+        guard let img = image else { return 0 }
+        let width: CGFloat = img.size.width
+        let height: CGFloat = img.size.height
+        let ratio = height / width
+        let desiredHeight: CGFloat = baseWidth * ratio
+        
+        return desiredHeight
+    }
+    
     static func getUnivesityDetails(id: String, universityList: [UniversityResponseModel]) -> UniversityResponseModel {
         for university in universityList {
             if university.id == id {
